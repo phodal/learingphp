@@ -1,0 +1,40 @@
+<?php /*%%SmartyHeaderCode:8319526656fb4cc371-14121246%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+$_valid = $_smarty_tpl->decodeProperties(array (
+  'file_dependency' => 
+  array (
+    '5348fe539c5e9e909104bca812e1f065a9307a47' => 
+    array (
+      0 => '.\\templates\\index2.tpl',
+      1 => 1382438905,
+      2 => 'file',
+    ),
+  ),
+  'nocache_hash' => '8319526656fb4cc371-14121246',
+  'cache_lifetime' => 120,
+  'version' => 'Smarty-3.1.15',
+  'unifunc' => 'content_526657fa4611e5_35257475',
+  'variables' => 
+  array (
+    'title' => 1,
+    'Name' => 1,
+  ),
+  'has_nocache_code' => true,
+),true); /*/%%SmartyHeaderCode%%*/?>
+<?php if ($_valid && !is_callable('content_526657fa4611e5_35257475')) {function content_526657fa4611e5_35257475($_smarty_tpl) {?><!DOCTYPE HTML>
+<html lang="zh" idr="ltr">
+<head>
+<meta charset="utf-8">
+<TITLE><?php echo $_smarty_tpl->tpl_vars['title']->value;?>
+ - <?php echo $_smarty_tpl->tpl_vars['Name']->value;?>
+</TITLE>
+<link rel="stylesheet" type="text/css" href="templates/css/bootstrap.min.css">
+</head>
+<body>
+
+<script type="text/javascript" src="templates/js/jquery.min.js"></script>
+<script type="text/javascript" src="templates/js/bootstrap.min.js"></script>
+</body>
+
+</HTML>
+
+<?php }} ?>
