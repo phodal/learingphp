@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2013-10-22 12:31:04
+<?php /* Smarty version Smarty-3.1.15, created on 2013-10-22 13:30:55
          compiled from ".\templates\index.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:21098526651ed8140e1-78333372%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '749422d4cfc3eb5677cf499730392b6accd4d1c7' => 
     array (
       0 => '.\\templates\\index.tpl',
-      1 => 1382437863,
+      1 => 1382437868,
       2 => 'file',
     ),
   ),
@@ -36,7 +36,8 @@ if (!is_callable('smarty_modifier_date_format')) include 'E:\\xampp\\htdocs\\pla
 if (!is_callable('smarty_function_html_select_date')) include 'E:\\xampp\\htdocs\\pland\\libs\\plugins\\function.html_select_date.php';
 if (!is_callable('smarty_function_html_select_time')) include 'E:\\xampp\\htdocs\\pland\\libs\\plugins\\function.html_select_time.php';
 if (!is_callable('smarty_function_html_options')) include 'E:\\xampp\\htdocs\\pland\\libs\\plugins\\function.html_options.php';
-?><?php echo $_smarty_tpl->getSubTemplate ("header.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 9999, null, array('title'=>'foo'), 0);?>
+?><?php  $_config = new Smarty_Internal_Config("test.conf", $_smarty_tpl->smarty, $_smarty_tpl);$_config->loadConfigVars("setup", 'local'); ?>
+<?php echo $_smarty_tpl->getSubTemplate ("header.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 9999, null, array('title'=>'foo'), 0);?>
 
 
 <PRE>

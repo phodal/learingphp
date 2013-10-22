@@ -20,16 +20,15 @@
 	      <span class="icon-bar"></span>
 	      <span class="icon-bar"></span>
 	    </button>
-	     <a class="navbar-brand" href="#">Phodal</a>
+	     <a class="navbar-brand" href="#">{$navbrand}</a>
 	  </div>
 
 	  <div class="collapse navbar-collapse navbar-ex1-collapse subMenu">
 	    <ul class="nav navbar-nav" id="top-nav">
-	      <li  href="#section-1"><a href="#">在校情况</a></li>
-	    <li ><a href="#section-2" >项目经历</a></li>
-	    <li ><a href="#section-3" >其他项目、经历</a></li>
-	    <li ><a href="#section-4" >专业技能</a></li>
- 
+		{section name=outer loop=$navname}
+			<li ><a href="#section-{$smarty.section.outer.rownum}">{$navname[outer]}</a></li> 
+		{/section}
+
 	      <li class="dropdown">
 	        <a href="#" class="dropdown-toggle" data-toggle="dropdown">简历下载<b class="caret"></b></a>
 	        <ul class="dropdown-menu" >

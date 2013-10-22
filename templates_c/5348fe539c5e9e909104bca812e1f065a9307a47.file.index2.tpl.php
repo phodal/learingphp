@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2013-10-22 13:28:33
+<?php /* Smarty version Smarty-3.1.15, created on 2013-10-22 13:40:10
          compiled from ".\templates\index2.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:8942526656d8009639-15683154%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '5348fe539c5e9e909104bca812e1f065a9307a47' => 
     array (
       0 => '.\\templates\\index2.tpl',
-      1 => 1382441312,
+      1 => 1382442009,
       2 => 'file',
     ),
   ),
@@ -21,6 +21,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   array (
     'title' => 1,
     'Name' => 1,
+    'navbrand' => 1,
+    'navname' => 0,
   ),
   'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
@@ -48,18 +50,43 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 	      <span class="icon-bar"></span>
 	      <span class="icon-bar"></span>
 	    </button>
-	     <a class="navbar-brand" href="#">Phodal</a>
+	     <a class="navbar-brand" href="#"><?php echo $_smarty_tpl->tpl_vars['navbrand']->value;?>
+</a>
 	  </div>
 
 	  <div class="collapse navbar-collapse navbar-ex1-collapse subMenu">
 	    <ul class="nav navbar-nav" id="top-nav">
-	      <li  href="#section-1"><a href="#">在校情况</a></li>
-	    <li ><a href="#section-2" >项目经历</a></li>
-	    <li ><a href="#section-3" >其他项目、经历</a></li>
-	    <li ><a href="#section-4" >专业技能</a></li>
- 
+		<?php if (isset($_smarty_tpl->tpl_vars['smarty']->value['section']['outer'])) unset($_smarty_tpl->tpl_vars['smarty']->value['section']['outer']);
+$_smarty_tpl->tpl_vars['smarty']->value['section']['outer']['name'] = 'outer';
+$_smarty_tpl->tpl_vars['smarty']->value['section']['outer']['loop'] = is_array($_loop=$_smarty_tpl->tpl_vars['navname']->value) ? count($_loop) : max(0, (int) $_loop); unset($_loop);
+$_smarty_tpl->tpl_vars['smarty']->value['section']['outer']['show'] = true;
+$_smarty_tpl->tpl_vars['smarty']->value['section']['outer']['max'] = $_smarty_tpl->tpl_vars['smarty']->value['section']['outer']['loop'];
+$_smarty_tpl->tpl_vars['smarty']->value['section']['outer']['step'] = 1;
+$_smarty_tpl->tpl_vars['smarty']->value['section']['outer']['start'] = $_smarty_tpl->tpl_vars['smarty']->value['section']['outer']['step'] > 0 ? 0 : $_smarty_tpl->tpl_vars['smarty']->value['section']['outer']['loop']-1;
+if ($_smarty_tpl->tpl_vars['smarty']->value['section']['outer']['show']) {
+    $_smarty_tpl->tpl_vars['smarty']->value['section']['outer']['total'] = $_smarty_tpl->tpl_vars['smarty']->value['section']['outer']['loop'];
+    if ($_smarty_tpl->tpl_vars['smarty']->value['section']['outer']['total'] == 0)
+        $_smarty_tpl->tpl_vars['smarty']->value['section']['outer']['show'] = false;
+} else
+    $_smarty_tpl->tpl_vars['smarty']->value['section']['outer']['total'] = 0;
+if ($_smarty_tpl->tpl_vars['smarty']->value['section']['outer']['show']):
+
+            for ($_smarty_tpl->tpl_vars['smarty']->value['section']['outer']['index'] = $_smarty_tpl->tpl_vars['smarty']->value['section']['outer']['start'], $_smarty_tpl->tpl_vars['smarty']->value['section']['outer']['iteration'] = 1;
+                 $_smarty_tpl->tpl_vars['smarty']->value['section']['outer']['iteration'] <= $_smarty_tpl->tpl_vars['smarty']->value['section']['outer']['total'];
+                 $_smarty_tpl->tpl_vars['smarty']->value['section']['outer']['index'] += $_smarty_tpl->tpl_vars['smarty']->value['section']['outer']['step'], $_smarty_tpl->tpl_vars['smarty']->value['section']['outer']['iteration']++):
+$_smarty_tpl->tpl_vars['smarty']->value['section']['outer']['rownum'] = $_smarty_tpl->tpl_vars['smarty']->value['section']['outer']['iteration'];
+$_smarty_tpl->tpl_vars['smarty']->value['section']['outer']['index_prev'] = $_smarty_tpl->tpl_vars['smarty']->value['section']['outer']['index'] - $_smarty_tpl->tpl_vars['smarty']->value['section']['outer']['step'];
+$_smarty_tpl->tpl_vars['smarty']->value['section']['outer']['index_next'] = $_smarty_tpl->tpl_vars['smarty']->value['section']['outer']['index'] + $_smarty_tpl->tpl_vars['smarty']->value['section']['outer']['step'];
+$_smarty_tpl->tpl_vars['smarty']->value['section']['outer']['first']      = ($_smarty_tpl->tpl_vars['smarty']->value['section']['outer']['iteration'] == 1);
+$_smarty_tpl->tpl_vars['smarty']->value['section']['outer']['last']       = ($_smarty_tpl->tpl_vars['smarty']->value['section']['outer']['iteration'] == $_smarty_tpl->tpl_vars['smarty']->value['section']['outer']['total']);
+?>
+			<li ><a href="#section-<?php echo $_smarty_tpl->getVariable('smarty')->value['section']['outer']['rownum'];?>
+"><?php echo $_smarty_tpl->tpl_vars['navname']->value[$_smarty_tpl->getVariable('smarty')->value['section']['outer']['index']];?>
+</a></li> 
+		<?php endfor; endif; ?>
+
 	      <li class="dropdown">
-	        <a href="#" class="dropdown-toggle" data-toggle="dropdown">简历下载 </a>
+	        <a href="#" class="dropdown-toggle" data-toggle="dropdown">简历下载<b class="caret"></b></a>
 	        <ul class="dropdown-menu" >
 	          <li><a href="#">全版本</a></li>
 	        </ul>

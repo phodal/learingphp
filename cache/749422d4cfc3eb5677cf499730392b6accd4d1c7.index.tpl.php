@@ -5,7 +5,13 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '749422d4cfc3eb5677cf499730392b6accd4d1c7' => 
     array (
       0 => '.\\templates\\index.tpl',
-      1 => 1382437863,
+      1 => 1382437868,
+      2 => 'file',
+    ),
+    '0debd65d8a9db561a3ba3fd862046bf4e41cc1db' => 
+    array (
+      0 => '.\\configs\\test.conf',
+      1 => 1380600416,
       2 => 'file',
     ),
     '10e0737838b4a574ef135d0c601e7b602cfaf37a' => 
@@ -24,7 +30,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'nocache_hash' => '21098526651ed8140e1-78333372',
   'cache_lifetime' => 120,
   'version' => 'Smarty-3.1.15',
-  'unifunc' => 'content_526653e861c1e5_80597454',
+  'unifunc' => 'content_526661f01dbf92_18255524',
   'variables' => 
   array (
     'SCRIPT_NAME' => 0,
@@ -38,7 +44,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   ),
   'has_nocache_code' => true,
 ),true); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_526653e861c1e5_80597454')) {function content_526653e861c1e5_80597454($_smarty_tpl) {?><!DOCTYPE HTML>
+<?php if ($_valid && !is_callable('content_526661f01dbf92_18255524')) {function content_526661f01dbf92_18255524($_smarty_tpl) {?><!DOCTYPE HTML>
 <html lang="zh" idr="ltr">
 <HEAD>
 <meta charset="utf-8">
@@ -52,12 +58,12 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 <PRE>
 
 
+<b>
+Title: Welcome To Smarty!
+</b>
+The current date and time is 2013-10-22 13:30:56
 
-Title: 
-
-The current date and time is 2013-10-22 12:31:04
-
-The value of global assigned variable $SCRIPT_NAME is /pland/index.php
+The value of global assigned variable $SCRIPT_NAME is /pland/index-smart.php
 
 Example of accessing server environment variable SERVER_NAME: localhost
 
@@ -88,7 +94,7 @@ An example of section looped key values:
 <p>
 
 testing strip tags
-<table border=0><tr><td><A HREF="/pland/index.php"><font color="red">This is a  test     </font></A></td></tr></table>
+<table border=0><tr><td><A HREF="/pland/index-smart.php"><font color="red">This is a  test     </font></A></td></tr></table>
 
 </PRE>
 
@@ -163,7 +169,7 @@ This is an example of the html_select_time function:
 
 <form>
 <select name="Time_Hour">
-<option value="01">01</option>
+<option value="01" selected="selected">01</option>
 <option value="02">02</option>
 <option value="03">03</option>
 <option value="04">04</option>
@@ -174,7 +180,7 @@ This is an example of the html_select_time function:
 <option value="09">09</option>
 <option value="10">10</option>
 <option value="11">11</option>
-<option value="12" selected="selected">12</option>
+<option value="12">12</option>
 </select>
 <select name="Time_Minute">
 <option value="00">00</option>
@@ -207,8 +213,8 @@ This is an example of the html_select_time function:
 <option value="27">27</option>
 <option value="28">28</option>
 <option value="29">29</option>
-<option value="30">30</option>
-<option value="31" selected="selected">31</option>
+<option value="30" selected="selected">30</option>
+<option value="31">31</option>
 <option value="32">32</option>
 <option value="33">33</option>
 <option value="34">34</option>
@@ -243,7 +249,7 @@ This is an example of the html_select_time function:
 <option value="01">01</option>
 <option value="02">02</option>
 <option value="03">03</option>
-<option value="04" selected="selected">04</option>
+<option value="04">04</option>
 <option value="05">05</option>
 <option value="06">06</option>
 <option value="07">07</option>
@@ -295,7 +301,7 @@ This is an example of the html_select_time function:
 <option value="53">53</option>
 <option value="54">54</option>
 <option value="55">55</option>
-<option value="56">56</option>
+<option value="56" selected="selected">56</option>
 <option value="57">57</option>
 <option value="58">58</option>
 <option value="59">59</option>
