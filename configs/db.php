@@ -18,9 +18,16 @@ $sql="select nav from header";
 mysql_query("set names utf8;");
 
 $result=$db->query($sql);
-while ($row = $result->fetchRow()) {
-    echo "<h1> $row[0] </h1>";
-}
+$i=0;
 
+while ($row = $result->fetchRow()) {
+    $zero[$i]=$row[0];
+    $i=$i+1;
+}
+/*
+var_dump($zero);
+while($element=each($zero)){
+	echo $element['value'];
+}*/
 $db->disconnect();
 
