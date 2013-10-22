@@ -1,4 +1,4 @@
-﻿<?php
+<?php
  /**
  * Example Application
 
@@ -6,6 +6,7 @@
  */
 
 require './libs/Smarty.class.php';
+require './configs/db.php';
 
 $smarty = new Smarty;
 //$smarty->debugging = true;
