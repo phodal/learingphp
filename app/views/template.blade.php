@@ -23,9 +23,7 @@
         </div>
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="#">Home</a></li>
-            <li ><a href="./FP.EGG.html">彩蛋</a></li>
-
+            <li ><a href="#">Home</a></li>
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">About<b class="caret"></b></a>
               <ul class="dropdown-menu">

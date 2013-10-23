@@ -2,124 +2,126 @@
 
 return array(
 
-	/**
-	 * Package URI
-	 *
-	 * @type string
-	 */
-	'uri' => 'administrator',
+        /**
+         * Package URI
+         *
+         * @type string
+         */
+        'uri' => 'administrator',
 
-	/**
-	 * Page title
-	 *
-	 * @type string
-	 */
-	'title' => 'Admin',
+        /**
+         * Page title
+         *
+         * @type string
+         */
+        'title' => 'Admin',
 
-	/**
-	 * The path to your model config directory
-	 *
-	 * @type string
-	 */
-	'model_config_path' => app('path') . '/config/administrator',
+        /**
+         * The path to your model config directory
+         *
+         * @type string
+         */
+        'model_config_path' => app('path') . '/config/administrator',
 
-	/**
-	 * The path to your settings config directory
-	 *
-	 * @type string
-	 */
-	'settings_config_path' => app('path') . '/config/administrator/settings',
+        /**
+         * The path to your settings config directory
+         *
+         * @type string
+         */
+        'settings_config_path' => app('path') . '/config/administrator/settings',
 
-	/**
-	 * The menu structure of the site. For models, you should either supply the name of a model config file or an array of names of model config
-	 * files. The same applies to settings config files, except you must prepend 'settings.' to the settings config file name. You can also add
-	 * custom pages by prepending a view path with 'page.'. By providing an array of names, you can group certain models or settings pages
-	 * together. Each name needs to either have a config file in your model config path, settings config path with the same name, or a path to a
-	 * fully-qualified Laravel view. So 'users' would require a 'users.php' file in your model config path, 'settings.site' would require a
-	 * 'site.php' file in your settings config path, and 'page.foo.test' would require a 'test.php' or 'test.blade.php' file in a 'foo' directory
-	 * inside your view directory.
-	 *
-	 * @type array
-	 *
-	 * 	array(
-	 *		'E-Commerce' => array('collections', 'products', 'product_images', 'orders'),
-	 *		'homepage_sliders',
-	 *		'users',
-	 *		'roles',
-	 *		'colors',
-	 *		'Settings' => array('settings.site', 'settings.ecommerce', 'settings.social'),
-	 * 		'Analytics' => array('E-Commerce' => 'page.ecommerce.analytics'),
-	 *	)
-	 */
-	'menu' => array(),
+        /**
+         * The menu structure of the site. Each item should either be the name of the model's config file or an array of names of model config files.
+         * By doing the latter, you can group certain models together. Each name needs to have a config file in your model config path with the same
+         * name. So 'users' would require a 'users.php' file in your model config path.
+         *
+         * @type array
+         *
+         *         array(
+         *                'Products' => array('products', 'product_images', 'orders'),
+         *                'users',
+         *        )
+         */
+        'menu' => array(
+                'Films' => array('films', 'boxoffice'),
+                'actors',
+                'directors',
+                'theaters',
+                'Settings' => array('settings.site'),
+        ),
 
-	/**
-	 * The permission option is the highest-level authentication check that lets you define a closure that should return true if the current user
-	 * is allowed to view the admin section. Any "falsey" response will send the user back to the 'login_path' defined below.
-	 *
-	 * @type closure
-	 */
-	'permission'=> function()
-	{
-		return Auth::check();
-	},
+        /**
+         * The permission option is the highest-level authentication check that lets you define a closure that should return true if the current user
+         * is allowed to view the admin section. Any "falsey" response will send the user back to the 'login_path' defined below.
+         *
+         * @type closure
+         */
+        'permission'=> function()
+        {
+                return true;
+                //return Auth::user()->hasRole('admin');
+        },
 
-	/**
-	 * This determines if you will have a dashboard (whose view you provide in the dashboard_view option) or a non-dashboard home
-	 * page (whose menu item you provide in the home_page option)
-	 *
-	 * @type bool
-	 */
-	'use_dashboard' => false,
+        /**
+         * This determines if you will have a dashboard (whose view you provide in the dashboard_view option) or a non-dashboard home
+         * page (whose menu item you provide in the home_page option)
+         *
+         * @type bool
+         */
+        'use_dashboard' => false,
 
-	/**
-	 * If you want to create a dashboard view, provide the view string here.
-	 *
-	 * @type string
-	 */
-	'dashboard_view' => '',
+        /**
+         * If you want to create a dashboard view, provide the view string here.
+         *
+         * @type string
+         */
+        'dashboard_view' => '',
 
-	/**
-	 * The menu item that should be used as the default landing page of the administrative section
-	 *
-	 * @type string
-	 */
-	'home_page' => '',
+        /**
+         * The menu item that should be used as the default landing page of the administrative section
+         *
+         * @type string
+         */
+        'home_page' => 'settings.site',
 
-	/**
-	 * The login path is the path where Administrator will send the user if they fail a permission check
-	 *
-	 * @type string
-	 */
-	'login_path' => 'user/login',
+        /**
+         * This is the path where Administrator will send the user if they are not logged in (!Auth::check())
+         *
+         * @type string
+         */
+        'login_path' => 'user/login',
 
-	/**
-	 * The logout path is the path where Administrator will send the user when they click the logout link
-	 *
-	 * @type string
-	 */
-	'logout_path' => false,
+        /**
+         * The logout path is the path where Administrator will send the user when they click the logout link
+         *
+         * @type string
+         */
+        'logout_path' => 'user/logout',
 
-	/**
-	 * This is the key of the return path that is sent with the redirection to your login_action. Input::get('redirect') will hold the return URL.
-	 *
-	 * @type string
-	 */
-	'login_redirect_key' => 'redirect',
+        /**
+         * Redirect key
+         *
+         * @type string
+         *
+         * This comes with the redirection to your login_action. Input::get('redirect') will hold the return URL.
+         */
+        'login_redirect_key' => 'redirect',
 
-	/**
-	 * Global default rows per page
-	 *
-	 * @type NULL|int
-	 */
-	'global_rows_per_page' => 20,
+        /**
+         * Global items per page
+         *
+         * @type NULL|int
+         *
+         * If you set this to an integer value greater than 0, it will override the $per_page static property in ALL of your models
+         */
+        'global_rows_per_page' => 20,
 
-	/**
-	 * An array of available locale strings. This determines which locales are available in the languages menu at the top right of the Administrator
-	 * interface.
-	 *
-	 * @type array
-	 */
-	'locales' => array(),
+        /**
+         * An array of available locale strings. This determines which locales are available in the languages menu at the top right of the Administrator
+         * interface.
+         *
+         * @type array
+         */
+        'locales' => array(),
 
 );
