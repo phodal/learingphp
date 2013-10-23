@@ -14,7 +14,8 @@
 
 Route::get('/', function()
 {
-	return View::make('home');
+	$box_office=Actor::all();
+	return View::make('home')->with('box_office',$box_office);
 });
 
 
@@ -68,6 +69,11 @@ Route::filter($admin_dir,function()
 		return Redirect::to('login')->with('flash_error','You must be login');
 	}
 });
+
+Route::resource('photo', 'PhotoController',
+                array('only' => array('index', 'show')));
+
+
 
 Route::when($admin_dir,'/*','admin');
 Route::when($admin_dir,'admin');

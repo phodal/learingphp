@@ -1,6 +1,6 @@
 <?php
 
-class Usersz_Controller extends Base_Controller
+class UserszController extends BaseController
 
 {
 	public function action_index()
