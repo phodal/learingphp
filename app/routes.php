@@ -14,7 +14,7 @@
 
 Route::get('/', function()
 {
-	return View::make('index');
+	return View::make('home');
 });
 
 Route::get('users/{users?}',function($users){
@@ -34,3 +34,37 @@ Route::get('test',function()
 	return "The test user may be saved";
 });
 
+$admin_dir=Config::get('base.admin_dir');
+
+Route::get($admin_dir,function()
+{
+	return View::make('admin_main');
+});
+
+Route::get('login',function()
+{
+	return View::make('login');
+})->before('guest');
+
+Route::post('login',function()
+{
+	$user=array(
+		'name'=>trim(Input::get('username')),
+		'password'=>trim(Input::get('password'))
+		);
+	if(Auth::attempt($user)){
+		return Redirect::to('admin');
+	}else{
+		return Redirect::to('login');
+	}
+});
+
+Route::filter($admin_dir,function()
+{
+	if(Auth::guest()){
+		return Redirect::to('login')->with('flash_error','You must be login');
+	}
+});
+
+Route::when($admin_dir,'/*','admin');
+Route::when($admin_dir,'admin');
