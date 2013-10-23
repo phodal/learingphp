@@ -113,7 +113,8 @@ return array(
 		'Illuminate\View\ViewServiceProvider',
 		'Illuminate\Workbench\WorkbenchServiceProvider',
 		'Dark\SmartyView\SmartyViewServiceProvider',
-
+		'Davzie\LaravelBootstrap\LaravelBootstrapServiceProvider',
+		'Frozennode\Administrator\AdministratorServiceProvider',
 	),
 
 	/*

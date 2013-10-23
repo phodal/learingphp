@@ -17,13 +17,16 @@ Route::get('/', function()
 	return View::make('home');
 });
 
-Route::get('users/{users?}',function($users){
+
+Route::get('users/{users?}',array('before'=>'auth.basic',function($users){
 	$users1=User::where('name','=',$users)
-				  ->select('name','email')
+				  ->select('name','email','led1')
 				  ->get();
 	$data=$users1;
 	return Response::json($data);
-});
+}));
+
+
 Route::get('test',function()
 {
 	$user=new User;

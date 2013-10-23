@@ -20,7 +20,8 @@ class UserTableSeeder extends Seeder{
 		User::create(array(
 			'name'=>'admin',
 			'password'=>Hash::make('admin'),
-			'email'=>'gmszone@phodal.com'
+			'email'=>'gmszone@phodal.com',
+			'led1'=>'1'
 		));
 	}
 }

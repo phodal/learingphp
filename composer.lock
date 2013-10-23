@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "78f02ea7c86239852c1224e6268a557b",
+    "hash": "1fb2e72d78de1701aaad50418e03c2b5",
     "packages": [
         {
             "name": "classpreloader/classpreloader",
@@ -88,6 +88,45 @@
             ],
             "description": "Smarty view engine incl. View Composer support for Laravel 4",
             "time": "2013-07-09 21:01:31"
+        },
+        {
+            "name": "davzie/laravel-bootstrap",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/davzie/laravel-bootstrap.git",
+                "reference": "7c632fc815c8688f7569a2a50eec03bc850e5e9d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/davzie/laravel-bootstrap/zipball/7c632fc815c8688f7569a2a50eec03bc850e5e9d",
+                "reference": "7c632fc815c8688f7569a2a50eec03bc850e5e9d",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": "4.0.x",
+                "intervention/image": "dev-master",
+                "php": ">=5.4.0"
+            },
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    "src/migrations",
+                    "src/controllers"
+                ],
+                "psr-0": {
+                    "Davzie\\LaravelBootstrap": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "authors": [
+                {
+                    "name": "David Thorpe",
+                    "email": "davzie@davzie.com"
+                }
+            ],
+            "description": "A Laravel 4 Based CMS Built With Twitter Bootstrap 3",
+            "time": "2013-09-23 08:49:46"
         },
         {
             "name": "doctrine/annotations",
@@ -610,6 +649,107 @@
                 "zf2"
             ],
             "time": "2013-06-10 12:22:13"
+        },
+        {
+            "name": "frozennode/administrator",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/FrozenNode/Laravel-Administrator.git",
+                "reference": "5e74c29bdfe21a719ed767b70b612e3ccaf3055b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/FrozenNode/Laravel-Administrator/zipball/5e74c29bdfe21a719ed767b70b612e3ccaf3055b",
+                "reference": "5e74c29bdfe21a719ed767b70b612e3ccaf3055b",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "require-dev": {
+                "laravel/framework": ">=4.0.0",
+                "mockery/mockery": "0.8.0"
+            },
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    "src/controllers"
+                ],
+                "psr-0": {
+                    "Frozennode\\Administrator": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Jan Hartigan",
+                    "email": "jan@frozennode.com"
+                }
+            ],
+            "description": "A database interface package for Laravel",
+            "keywords": [
+                "admin",
+                "administrator",
+                "cms",
+                "database",
+                "laravel",
+                "laravel-administrator"
+            ],
+            "time": "2013-10-07 16:25:43"
+        },
+        {
+            "name": "intervention/image",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Intervention/image.git",
+                "reference": "49b817a4595df9a8568833644b8845d0758492cd"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Intervention/image/zipball/49b817a4595df9a8568833644b8845d0758492cd",
+                "reference": "49b817a4595df9a8568833644b8845d0758492cd",
+                "shasum": ""
+            },
+            "require": {
+                "ext-gd": "*",
+                "illuminate/support": "4.*",
+                "php": ">=5.3.0"
+            },
+            "suggest": {
+                "intervention/imagecache": "Caching extension for the Intervention Image library"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Intervention\\Image": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Oliver Vogel",
+                    "email": "oliver@olivervogel.net",
+                    "homepage": "http://olivervogel.net/"
+                }
+            ],
+            "description": "Image handling and manipulation library with support for Laravel 4 integration",
+            "homepage": "http://intervention.olivervogel.net/image/",
+            "keywords": [
+                "gd",
+                "image",
+                "laravel",
+                "thumbnail",
+                "watermark"
+            ],
+            "time": "2013-09-25 15:05:36"
         },
         {
             "name": "ircmaxell/password-compat",
@@ -1853,7 +1993,9 @@
     ],
     "minimum-stability": "dev",
     "stability-flags": {
-        "dark/smarty-view": 20
+        "dark/smarty-view": 20,
+        "davzie/laravel-bootstrap": 20,
+        "frozennode/administrator": 20
     },
     "platform": [
 
