@@ -7,7 +7,8 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'Twig_' => array($vendorDir . '/twig/twig/lib'),
+    'Tonic' => array($vendorDir . '/peej/tonic/src'),
     'Slim' => array($vendorDir . '/slim/slim'),
-    'Pagon' => array($vendorDir . '/pagon/pagon/lib'),
+    'Pimple' => array($vendorDir . '/pimple/pimple/lib'),
     'Michelf' => array($vendorDir . '/michelf/php-markdown'),
 );
