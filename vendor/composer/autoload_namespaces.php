@@ -8,5 +8,6 @@ $baseDir = dirname($vendorDir);
 return array(
     'Twig_' => array($vendorDir . '/twig/twig/lib'),
     'Slim' => array($vendorDir . '/slim/slim'),
+    'Pagon' => array($vendorDir . '/pagon/pagon/lib'),
     'Michelf' => array($vendorDir . '/michelf/php-markdown'),
 );

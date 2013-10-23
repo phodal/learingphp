@@ -148,5 +148,59 @@
         "keywords": [
             "templating"
         ]
+    },
+    {
+        "name": "pagon/pagon",
+        "version": "0.7.1",
+        "version_normalized": "0.7.1.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/hfcorriez/pagon.git",
+            "reference": "2ef0ceb2ff3a4e7c613bea3fd4ee918132cf7875"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/hfcorriez/pagon/zipball/2ef0ceb2ff3a4e7c613bea3fd4ee918132cf7875",
+            "reference": "2ef0ceb2ff3a4e7c613bea3fd4ee918132cf7875",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.3.9"
+        },
+        "require-dev": {
+            "opauth/github": "0.1.0",
+            "opauth/opauth": "0.4.4",
+            "pagon/jade": "1.0.0",
+            "symfony/yaml": "v2.3.3"
+        },
+        "suggest": {
+            "opauth/opauth": "Auth with OPAuth service provider",
+            "pagon/jade": "Support Jade template engine",
+            "symfony/yaml": "Support Yaml config parse and build"
+        },
+        "time": "2013-08-11 15:06:46",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-0": {
+                "Pagon": "lib/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Corrie Zhao",
+                "email": "hfcorriez@gmail.com",
+                "homepage": "http://feiyang.me"
+            }
+        ],
+        "description": "Pagon Framework",
+        "keywords": [
+            "framework",
+            "pagon"
+        ]
     }
 ]
