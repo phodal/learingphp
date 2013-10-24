@@ -8,7 +8,7 @@ return array(
 
 	'title' => '文章',
 
-	'single' => 'posts',
+	'single' => '内容',
 
 	'model' => 'Posts',
 
@@ -17,7 +17,7 @@ return array(
 	 */
 	'columns' => array(
 		'id',
-		'name' => array(
+		'author' => array(
 			'title' => 'author',
 			'select' => "author",
 		),
@@ -41,21 +41,19 @@ return array(
 	 * The filter set
 	 */
 	'filters' => array(
-		'id',
-		'name' => array(
-			'title'=>'author',
-			'type'=>'text',
+		'author' => array(
+			'title'=>'作者',
 		),
 		'post_title'=>array(
-			'title'=>'post_title',
+			'title'=>'标题',
 			'type'=>'text',
 		),
 		'post_content'=>array(
-			'title'=>'post_content',
+			'title'=>'内容',
 			'type'=>'text',
 		),
 		'updated_at'=>array(
-			'title'=>'date',
+			'title'=>'时间',
 			'type'=>'date',
 		),
 
@@ -65,25 +63,25 @@ return array(
 	 * The editable fields
 	 */
 	'edit_fields' => array(
-		'name' => array(
-			'title'=>'author',
+		'author' => array(
+			'title'=>'作者',
 			'type'=>'text',
 			'name_field' => 'name',
 
 		),
 		'post_title'=> array(
-			'title'=>'post_title',
+			'title'=>'标题',
 			'type'=>'text',
 			'name_field' => 'name',
 		),
 		'post_content'=>array(
-			'title'=>'post_content',
+			'title'=>'内容',
 			'type'=>'text',
 			'name_field' => 'name',
 
 		),
 		'updated_at'=>array(
-			'title'=>'DATE',
+			'title'=>'时间',
 			'type'=>'date',
 		),
 	),

@@ -3,7 +3,7 @@
 class Posts extends Eloquent {
 	public static $rules=array
 	(
-		'name'=>'required',
+		'author'=>'required',
 		'post_title'=>'required',
 		'post_content'=>'required',
 		'updated_at'=>'required',

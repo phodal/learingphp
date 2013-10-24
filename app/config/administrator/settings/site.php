@@ -11,7 +11,7 @@ return array(
 	 *
 	 * @type string
 	 */
-	'title' => 'Site Settings',
+	'title' => '站点设置',
 
 	/**
 	 * The edit fields array
@@ -20,7 +20,7 @@ return array(
 	 */
 	'edit_fields' => array(
 		'site_name' => array(
-			'title' => 'Site Name',
+			'title' => '站点名称',
 			'type' => 'text',
 			'limit' => 50,
 		),
@@ -28,6 +28,7 @@ return array(
 			'title' => 'Page Cache Lifetime (in minutes)',
 			'type' => 'number',
 		),
+		/*
 		'logo' => array(
 			'title' => 'Image (200 x 150)',
 			'type' => 'image',
@@ -37,7 +38,7 @@ return array(
 			'sizes' => array(
 		 		array(200, 150, 'crop', public_path() . '/resize/', 100),
 		 	)
-		),
+		),*/
 	),
 
 	/**
@@ -48,7 +49,7 @@ return array(
 	'rules' => array(
 		'site_name' => 'required|max:50',
 		'page_cache_lifetime' => 'required|integer',
-		'logo' => 'required',
+		//'logo' => 'required',
 	),
 
 	/**
@@ -61,7 +62,7 @@ return array(
 	 */
 	'before_save' => function(&$data)
 	{
-		$data['site_name'] = $data['site_name'] . ' - The Blurst Site Ever';
+		$data['site_name'] = $data['site_name'] ;
 	},
 
 	/**
