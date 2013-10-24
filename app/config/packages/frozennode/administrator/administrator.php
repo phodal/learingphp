@@ -43,10 +43,12 @@ return array(
          *        )
          */
         'menu' => array(
+        	/*
                 'Films' => array('films', 'boxoffice'),
                 'actors',
                 'directors',
-                'theaters',
+                'theaters',*/
+                'posts',
                 'Settings' => array('settings.site'),
         ),
 
@@ -82,7 +84,7 @@ return array(
          *
          * @type string
          */
-        'home_page' => 'settings.site',
+        'home_page' => 'posts',
 
         /**
          * This is the path where Administrator will send the user if they are not logged in (!Auth::check())
