@@ -11,13 +11,13 @@ class CreateUsersTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('users', function($table)
+		Schema::create('users', function( $table)
 	    {
 	        $table->increments('id');
-	        $table->string('email')->unique();
-	        $table->string('name');
-	        $table->string('password');
-	        $table->boolean('led1');
+	        $table->string('email',50);
+	        $table->string('name',100);
+	        $table->string('password',60);
+	        $table->boolean('led1',true);
 	        $table->timestamps();
 	    });
     }
