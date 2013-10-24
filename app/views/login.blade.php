@@ -12,7 +12,7 @@
 
 	<div class="login section">
 	    {{ Form::open(array('method' => 'post')) }}
-	    <p>
+
 	    {{ Form::label('username', 'Username') }}
 	    {{ Form::text('username'); }}
 	    </p>
@@ -21,7 +21,10 @@
 	    {{ Form::password('password') }}
 	    </p>
 	 
-	    <p>{{ Form::submit('Login') }}</p>
+	    <p>{{ Form::submit('Login',['class' => 'btn btn-large btn-primary openbutton']) }}</p>
+	    @if (Session::has('login_errors'))
+	        <span class="error">Username or password incorrect.</span>
+	    @endif    
 	    {{ Form::close() }}
 </div>
 </div>

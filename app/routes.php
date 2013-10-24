@@ -19,6 +19,7 @@ Route::get('/', function()
 		->with('box_office',$box_office);
 });
 
+Route::post('/', 'UserLogin@user');
 
 Route::get('users/{users?}',array('before'=>'auth.basic',function($users){
 	$users1=User::where('name','=',$users)
@@ -51,18 +52,8 @@ Route::get('login',function()
 	return View::make('login');
 })->before('guest');
 
-Route::post('login',function()
-{
-	$user=array(
-		'name'=>trim(Input::get('username')),
-		'password'=>trim(Input::get('password'))
-		);
-	if(Auth::attempt($user)){
-		return Redirect::to('administrator');
-	}else{
-		return Redirect::to('login');
-	}
-});
+Route::post('login', 'UserLogin@user');
+
 Route::get('logout', function()
 {
     Auth::logout();

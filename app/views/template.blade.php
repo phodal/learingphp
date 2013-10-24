@@ -50,7 +50,7 @@
  			@yield('content')	
  		</div>
  		<div class="col-lg-2">
- 					fd
+ 			@yield('panel')
  		</div>
     </div>
 </div>
