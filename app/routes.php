@@ -14,8 +14,9 @@
 
 Route::get('/', function()
 {
-	$box_office=Actor::all();
-	return View::make('home')->with('box_office',$box_office);
+	$box_office=Posts::all();
+	return View::make('home')
+		->with('box_office',$box_office);
 });
 
 

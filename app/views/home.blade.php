@@ -16,7 +16,8 @@ hello
 @else
 <h1>Welcome </h1>
 @foreach ($box_office as $box_office)
-    <p>This is user {{ $box_office->name }}</p>
+    标题<p>{{ $box_office->post_title}} {{ $box_office->author }}</p>
+    正文<p>{{ $box_office->post_content}}</p>
 @endforeach
 
 @endif
