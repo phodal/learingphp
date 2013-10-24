@@ -8,7 +8,7 @@
    <meta name="description" content="">
    <title>@yield('title')</title>
   <link rel="stylesheet" type="text/css" href="<?= url('css/bootstrap.min.css') ?>" />
-  <script type="text/javascript" src="<?= url('ckeditor/ckeditor.js') ?>"></script>
+  <script type="text/javascript" src="<?= url('js/ckeditor/ckeditor.js') ?>"></script>
 
 </head>
 <body>
