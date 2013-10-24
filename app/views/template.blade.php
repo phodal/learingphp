@@ -7,7 +7,9 @@
    <meta name="viewport" content="width=device-width">
    <meta name="description" content="">
    <title>@yield('title')</title>
-  <link rel="stylesheet" type="text/css" href="./css/bootstrap.min.css" />
+  <link rel="stylesheet" type="text/css" href="<?= url('css/bootstrap.min.css') ?>" />
+  <script type="text/javascript" src="<?= url('ckeditor/ckeditor.js') ?>"></script>
+
 </head>
 <body>
 
@@ -41,9 +43,13 @@
 <div class="jumbotron">
 
  @yield('content')
+ <textarea name="content" id="content"></textarea>
+
 </div>
 </div>
-<script type="text/javascript" src="./js/jquery.min.js"></script>
-<script type="text/javascript" src="./js/bootstrap.min.js"></script>
+<script type="text/javascript" src="<?= url('js/jquery.min.js')?>"></script>
+<script type="text/javascript" src="<?= url('js/bootstrap.min.js') ?>"></script>
+<script>CKEDITOR.replace('content');</script>
+
 </body>
 </html>
