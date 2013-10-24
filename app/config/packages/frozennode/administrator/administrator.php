@@ -91,14 +91,14 @@ return array(
          *
          * @type string
          */
-        'login_path' => 'user/login',
+        'login_path' => 'login',
 
         /**
          * The logout path is the path where Administrator will send the user when they click the logout link
          *
          * @type string
          */
-        'logout_path' => 'user/logout',
+        'logout_path' => 'logout',
 
         /**
          * Redirect key

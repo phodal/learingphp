@@ -8,7 +8,6 @@
    <meta name="description" content="">
    <title>@yield('title')</title>
   <link rel="stylesheet" type="text/css" href="<?= url('css/bootstrap.min.css') ?>" />
-  <script type="text/javascript" src="<?= url('js/ckeditor/ckeditor.js') ?>"></script>
 
 </head>
 <body>
@@ -42,14 +41,22 @@
 <div class="container">
 <div class="jumbotron">
 
- @yield('content')
- <textarea name="content" id="content"></textarea>
 
 </div>
 </div>
+<div class="container">
+	<div class="row">
+ 		<div class="span3 left">
+ 					fd
+ 		</div>
+		<div class="span9 right">
+ 			@yield('content')	
+ 		</div>
+
+    </div>
+</div>
 <script type="text/javascript" src="<?= url('js/jquery.min.js')?>"></script>
 <script type="text/javascript" src="<?= url('js/bootstrap.min.js') ?>"></script>
-<script>CKEDITOR.replace('content');</script>
 
 </body>
 </html>

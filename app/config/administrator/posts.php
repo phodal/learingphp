@@ -11,6 +11,8 @@ return array(
 	'single' => '内容',
 
 	'model' => 'Posts',
+	
+	'form_width' => 960,
 
 	/**
 	 * The display columns
@@ -67,7 +69,6 @@ return array(
 			'title'=>'作者',
 			'type'=>'text',
 			'name_field' => 'name',
-
 		),
 		'post_title'=> array(
 			'title'=>'标题',
@@ -76,13 +77,16 @@ return array(
 		),
 		'post_content'=>array(
 			'title'=>'内容',
-			'type'=>'text',
+			'type'=>'wysiwyg',
 			'name_field' => 'name',
 
 		),
 		'updated_at'=>array(
 			'title'=>'时间',
 			'type'=>'date',
+			'date_format' => 'yy-mm-dd',
+			'sort_field' => 'updated_at',
+
 		),
 	),
 

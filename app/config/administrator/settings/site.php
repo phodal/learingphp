@@ -74,7 +74,7 @@ return array(
 	'permission'=> function()
 	{
 		return true;
-		//return Auth::user()->hasRole('developer');
+		#return Auth::user()->hasRole('admin');
 	},
 
 	/**

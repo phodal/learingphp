@@ -58,12 +58,17 @@ Route::post('login',function()
 		'password'=>trim(Input::get('password'))
 		);
 	if(Auth::attempt($user)){
-		return Redirect::to('admin');
+		return Redirect::to('administrator');
 	}else{
 		return Redirect::to('login');
 	}
 });
-
+Route::get('logout', function()
+{
+    Auth::logout();
+    return Redirect::to('login');
+});
+ 
 Route::filter($admin_dir,function()
 {
 	if(Auth::guest()){
