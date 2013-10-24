@@ -45,14 +45,13 @@
 </div>
 </div>
 <div class="container">
-	<div class="row">
- 		<div class="span3 left">
- 					fd
- 		</div>
-		<div class="span9 right">
+  <div class="row-fluid">
+		<div class="col-lg-10">
  			@yield('content')	
  		</div>
-
+ 		<div class="col-lg-2">
+ 					fd
+ 		</div>
     </div>
 </div>
 <script type="text/javascript" src="<?= url('js/jquery.min.js')?>"></script>
