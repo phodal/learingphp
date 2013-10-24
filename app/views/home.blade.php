@@ -27,7 +27,22 @@ hello
 @stop
 
 @section('panel')
+	    {{ Form::open(array('method' => 'post')) }}
 
+	    {{ Form::label('username', 'Username') }}
+	    {{ Form::text('username'); }}
+	    </p>
+	    <p>
+	    {{ Form::label('password', 'Password') }}
+	    {{ Form::password('password') }}
+	    </p>
+	 
+	    <p>{{ Form::submit('Login',['class' => 'btn btn-large btn-primary openbutton']) }}</p>
+
+	    @if (Session::has('login_errors'))
+	        <span class="error">Username or password incorrect.</span>
+	    @endif    
+	    {{ Form::close() }}
 
 @stop
 
