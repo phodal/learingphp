@@ -28,6 +28,13 @@ Route::get('users/{users?}',array('before'=>'auth.basic',function($users){
 	return Response::json($data);
 }));
 
+Route::get('{blog?}',function($posts){
+      $posts=Posts::where('post_title','=',$posts)
+		    ->select('post_title','post_content','updated_at','created_at')
+		    ->get();
+      $blogs=$posts;
+      return View::make('blogs')->with('posts',$posts);
+});
 Route::get('admin',function()
 {
 	return View::make('admin_main');
