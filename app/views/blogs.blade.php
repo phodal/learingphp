@@ -1,4 +1,4 @@
-@extends('template')
+@extends('layout')
 
 @section('nav')
 
@@ -9,6 +9,10 @@
 hello
 @stop
 
+@section('panel')
+
+liui
+@stop
 @section('content')
 @foreach ($posts as $blogs)
     <div itemscope itemtype="http://schema.org/Article">

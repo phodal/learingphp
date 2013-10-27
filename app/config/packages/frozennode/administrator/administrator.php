@@ -49,6 +49,7 @@ return array(
                 'directors',
                 'theaters',*/
                 'posts',
+                'navs',
                 '设置' => array('settings.site'),
         ),
 

@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateUsersRoles extends Migration {
+class CreateNavs extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -13,11 +13,10 @@ class CreateUsersRoles extends Migration {
 	public function up()
 	{
 		Schema::create(
-			'users_roles',
+			'navs',
 			function(Blueprint $table){
-				$table->increments('id');				
-				$table->integer('user_id');
-				$table->integer('role_id');
+				$table->integer('nav_id');
+				$table->string('nav_name');
 				$table->timestamps();
 			}
 		);
@@ -30,7 +29,7 @@ class CreateUsersRoles extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('users_roles');
+		Schema::drop('navs');
 	}
 
 }
