@@ -81,19 +81,7 @@ return array(
 	 * This is where you can define the settings page's custom actions
 	 */
 
-	'image' => array(
-	    'title' => 'Image',
-	    'type' => 'image',
-	    'location' => public_path() . '/uploads/products/originals/',
-	    'naming' => 'random',
-	    'length' => 20,
-	    'size_limit' => 2,
-	    'sizes' => array(
-	        array(65, 57, 'crop', public_path() . '/uploads/products/thumbs/small/', 100),
-	        array(220, 138, 'landscape', public_path() . '/uploads/products/thumbs/medium/', 100),
-	        array(383, 276, 'fit', public_path() . '/uploads/products/thumbs/full/', 100)
-	    )
-	),
+
 	'actions' => array(
 		//Ordering an item up
 		'clear_page_cache' => array(

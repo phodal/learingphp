@@ -17,6 +17,7 @@ class CreateUsersRoles extends Migration {
 			function(Blueprint $table){
 				$table->integer('user_id');
 				$table->integer('role_id');
+				$table->timestamps();
 			}
 		);
 	}

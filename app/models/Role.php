@@ -6,6 +6,7 @@ class Role extends Eloquent
      * Set timestamps off
      */
     public $timestamps = false;
+	protected $table = 'roles';
 
     /**
      * Get users with a certain role

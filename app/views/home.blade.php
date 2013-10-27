@@ -6,7 +6,7 @@
 @stop
 
 @section('title')
-hello
+PlanD CMS
 @stop
 
 @section('content')

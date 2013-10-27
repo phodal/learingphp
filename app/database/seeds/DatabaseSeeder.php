@@ -11,7 +11,8 @@ class DatabaseSeeder extends Seeder {
 	{
 		Eloquent::unguard();
 		$this->call('UserTableSeeder');
-		$this->command->info('User table seeded!');
+		$this->call('RolesTableSeeder');
+		$this->call('UsersRolesTableSeeder');
 
 	}
 }
@@ -24,6 +25,23 @@ class UserTableSeeder extends Seeder{
 			'password'=>Hash::make('admin'),
 			'email'=>'gmszone@phodal.com',
 			'led1'=>'true'
+		));
+	}
+}
+class RolesTableSeeder extends Seeder{
+	public function run()
+	{
+		Role::create(array(
+			'name'=>'admin'
+		));
+	}
+}
+class UsersRolesTableSeeder extends Seeder{
+	public function run()
+	{
+		UsersRoles::create(array(
+			'user_id'=>'1',
+			'role_id'=>'1'
 		));
 	}
 }
