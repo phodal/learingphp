@@ -10,14 +10,22 @@ return array(
 
 	'single' => '导航',
 
-	'model' => 'Nav',
+	'model' => 'Navs',
 	
 	/**
 	 * The display columns
 	 */
 	'columns' => array(
+		'id' => array(
+			'title'=>'id',
+			'type'=>'text',
+		),
 		'nav_name' => array(
-			'nav_name'=>'标题',
+			'title'=>'栏目名称',
+			'type'=>'text',
+		),
+		'nav_en' => array(
+			'title'=>'导航地址',
 			'type'=>'text',
 		),
 	),
@@ -27,21 +35,27 @@ return array(
 	 */
 	'filters' => array(
 		'nav_name' => array(
-			'nav_name'=>'标题',
+			'title'=>'标题',
 			'type'=>'text',		
 		),
-
+		'nav_en' => array(
+			'title'=>'导航地址',
+			'type'=>'text',		
+		),
 	),
 
 	/**
 	 * The editable fields
 	 */
-	'edit_fields' => array(
+	'edit_fields' => array(	
 		'nav_name' => array(
-			'nav_name'=>'标题',
+			'title'=>'标题',
 			'type'=>'text',		
 		),
-
+		'nav_en' => array(
+			'title'=>'URL地址(英语，用于当网址)',
+			'type'=>'text',		
+		),
 	),
 
 );

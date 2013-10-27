@@ -49,8 +49,7 @@ return array(
                 'directors',
                 'theaters',*/
                 'posts',
-                'navs',
-                '设置' => array('settings.site'),
+                '设置' => array('settings.site','navs',),
         ),
 
         /**
@@ -125,6 +124,6 @@ return array(
          *
          * @type array
          */
-		'locales' => array('zh-CN','en'),
+		'locales' => array('zh-CN'),
 
 );

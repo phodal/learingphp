@@ -23,9 +23,11 @@
 
         <div cclass="masthead">
           <ul class="nav nav-justified">
-            <li class="active"><a href="#" >Home</a></li>
-            <li><a href="http://about.phodal.com">关于我</a></li>
-            <li><a href="http://www.phodal.com">个人主页</a></li>
+            
+            @foreach($navbars as $navbar)
+			<li><a href="{{URL::to('/page/'.$navbar->nav_en)}}" title='{{$navbar->nav_name}}'>{{$navbar->nav_name}}</a></li>
+			@endforeach
+
 
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">About<b class="caret"></b></a>
@@ -62,7 +64,7 @@
 					<div class="panel-heading">
 						<h3 class="panel-title">Panel title</h3>
 					</div>
-					<div class="panel-body">
+					<div class="list-group">
 			 			@yield('content')	
 			 		</div>
 	 		</div>
@@ -73,7 +75,7 @@
 					<div class="panel-heading">
 						<h3 class="panel-title">Panel title</h3>
 					</div>
-					<div class="panel-body">
+					<div class="list-group">
 			 			@yield('content')	
 			 		</div>
 	 		</div>
@@ -92,7 +94,7 @@
 					<div class="panel-heading">
 						<h3 class="panel-title">Panel title</h3>
 					</div>
-					<div class="panel-body">
+					<div class="list-group">
 			 			@yield('content')	
 			 		</div>
 	 		</div>
@@ -103,7 +105,7 @@
 					<div class="panel-heading">
 						<h3 class="panel-title">Panel title</h3>
 					</div>
-					<div class="panel-body">
+					<div class="list-group">
 			 			@yield('content')	
 			 		</div>
 	 		</div>
@@ -114,7 +116,7 @@
 					<div class="panel-heading">
 						<h3 class="panel-title">Panel title</h3>
 					</div>
-					<div class="panel-body">
+					<div class="list-group">
 			 			@yield('content')	
 			 		</div>
 	 		</div>

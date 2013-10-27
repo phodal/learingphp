@@ -20,9 +20,7 @@
 
         <div cclass="masthead">
           <ul class="nav nav-justified">
-            <li class="active"><a href="<?= url('/') ?>" >Home</a></li>
-            <li><a href="http://about.phodal.com">关于我</a></li>
-            <li><a href="http://www.phodal.com">个人主页</a></li>
+            @yield('headnav');
 
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">About<b class="caret"></b></a>

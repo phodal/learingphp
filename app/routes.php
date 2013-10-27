@@ -14,9 +14,11 @@
 
 Route::get('/', function()
 {
-	$box_office=Posts::all();
+	$news_posts=Posts::all();
+	$navbars=Navs::all();
 	return View::make('home')
-		->with('box_office',$box_office);
+		->with('news_posts',$news_posts)
+		->with('navbars',$navbars);
 });
 
 
@@ -29,12 +31,25 @@ Route::get('users/{users?}',array('before'=>'auth.basic',function($users){
 }));
 
 Route::get('blogs/{blog?}',function($posts){
-      $posts=Posts::where('post_title','=',$posts)
+	$navbars=Navs::all();
+    $posts=Posts::where('post_title','=',$posts)
 		    ->select('post_title','post_content','updated_at','created_at')
 		    ->get();
-      $blogs=$posts;
-      return View::make('blogs')->with('posts',$posts);
+    $blogs=$posts;
+    return View::make('blogs')->with('posts',$posts)
+      							->with('navbars',$navbars);
 });
+
+Route::get('page/{navs?}',function($navs){
+	$navigation=Navs::where('nav_name','=',$navs)->get();
+	$navbars=Navs::all();
+ 	$posts=Posts::all();
+    return View::make('admin_main')
+    								->with('navbars',$navbars)
+    								->with('posts',$posts)
+    								->with('page_name',$navs);
+});
+
 Route::get('admin',function()
 {
 	return View::make('admin_main');

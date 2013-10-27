@@ -1,6 +1,5 @@
 <?php
 
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
 class CreateNavs extends Migration {
@@ -14,9 +13,10 @@ class CreateNavs extends Migration {
 	{
 		Schema::create(
 			'navs',
-			function(Blueprint $table){
-				$table->integer('nav_id');
+			function($table){
+				$table->increments('id');
 				$table->string('nav_name');
+				$table->string('nav_en');
 				$table->timestamps();
 			}
 		);

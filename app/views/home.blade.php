@@ -1,8 +1,9 @@
 @extends('template')
 
-@section('nav')
-
-
+@section('headnav')
+@foreach($navbars as $navbar)
+	<li><a href="{{URL::to('/page/'.$navbar->nav_en)}}" title='{{$navbar->nav_name}}'>{{$navbar->nav_name}}</a></li>
+@endforeach
 @stop
 
 @section('title')
@@ -10,9 +11,11 @@ PlanD CMS
 @stop
 
 @section('content')
-@foreach ($box_office as $box_office)
-    <li>{{ $box_office->post_title}} {{ $box_office->created_at }}
-    <a href="{{ URL::to('/blogs/' .$box_office->post_title) }}">more</a></li>
+@foreach ($news_posts as $news_post)
+    <li class="list-group-item"><a href="{{ URL::to('/blogs/' .$news_post->post_title) }} " 
+    		title="{{$news_post->post_title}}">
+    {{ $news_post->post_title}} {{ $news_post->created_at }}
+    </a></li>
 @endforeach
 @stop
 

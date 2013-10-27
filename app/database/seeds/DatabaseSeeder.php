@@ -13,6 +13,7 @@ class DatabaseSeeder extends Seeder {
 		$this->call('UserTableSeeder');
 		$this->call('RolesTableSeeder');
 		$this->call('UsersRolesTableSeeder');
+		$this->call('NavsTableSeeder');
 
 	}
 }
@@ -42,6 +43,15 @@ class UsersRolesTableSeeder extends Seeder{
 		UsersRoles::create(array(
 			'user_id'=>'1',
 			'role_id'=>'1'
+		));
+	}
+}
+class NavsTableSeeder extends Seeder{
+	public function run()
+	{
+		Navs::create(array(
+			'nav_name'=>'首页',
+			'nav_en'=>'Home'
 		));
 	}
 }

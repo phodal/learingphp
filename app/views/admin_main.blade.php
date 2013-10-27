@@ -1,1 +1,15 @@
-<h1>ADMIN</h1>
+@extends('template')
+
+@section('title')
+$page_name
+@stop
+
+@section('content')
+
+@stop
+
+@section('panel')
+
+
+@stop
+

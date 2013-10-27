@@ -14,4 +14,6 @@ How To Use
 
 version
 =============
-0.0.2
+
+like a small blog.
+0.1.0
