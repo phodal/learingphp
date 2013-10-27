@@ -11,30 +11,25 @@
 	    <link rel="stylesheet" type="text/css" href="<?= url('css/nivo-slider.css') ?>" />
 	    <link rel="stylesheet" type="text/css" href="<?= url('css/styles.css') ?>" />
 	    <link rel="stylesheet" href="<?= url('css/themes/default/default.css') ?>" type="text/css" media="screen" />
-	    <link rel="stylesheet" href="<?= url('css/themes/light/light.css') ?>" type="text/css" media="screen" />
-	    <link rel="stylesheet" href="<?= url('css/themes/dark/dark.css') ?>" type="text/css" media="screen" />
-	    <link rel="stylesheet" href="<?= url('css/themes/bar/bar.css') ?>" type="text/css" media="screen" />
+	    <link rel="stylesheet" href="<?= url('css/justified-nav.css') ?>" type="text/css" media="screen" />
 
 
 	</head>
 <body>
 
-<div class="navbar navbar-inverse navbar-fixed-top">
+<div class="navbar nav-default">
       <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="#">Phodal's DV</a>
-        </div>
-        <div class="navbar-collapse collapse">
-          <ul class="nav navbar-nav">
-            <li ><a href="#">Home</a></li>
+      <h3 class="text-muted">Project name</h3>
+
+        <div cclass="masthead">
+          <ul class="nav nav-justified">
+            <li class="active"><a href="#" >Home</a></li>
+            <li><a href="http://about.phodal.com">关于我</a></li>
+            <li><a href="http://www.phodal.com">个人主页</a></li>
+
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">About<b class="caret"></b></a>
-              <ul class="dropdown-menu">
+              <ul class="dropdown-menu nav">
                 <li><a href="http://about.phodal.com">关于我</a></li>
                 <li><a href="http://www.phodal.com">个人主页</a></li>
 
@@ -127,6 +122,9 @@
 
 
     </div>
+          <div class="footer">
+        <p>&copy; Company 2013</p>
+      </div>
 </div>
 
 <script type="text/javascript" src="<?= url('js/jquery.min.js')?>"></script>
@@ -156,7 +154,7 @@
 		    lastSlide: function(){},        // Triggers when last slide is shown
 		    afterLoad: function(){}         // Triggers when slider has loaded
 		});
-        
+
     });
 </script>
 
