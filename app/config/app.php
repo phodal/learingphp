@@ -115,6 +115,7 @@ return array(
 		'Dark\SmartyView\SmartyViewServiceProvider',
 		'Davzie\LaravelBootstrap\LaravelBootstrapServiceProvider',
 		'Frozennode\Administrator\AdministratorServiceProvider',
+		'Roumen\Sitemap\SitemapServiceProvider',
 	),
 
 	/*

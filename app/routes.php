@@ -28,7 +28,7 @@ Route::get('users/{users?}',array('before'=>'auth.basic',function($users){
 	return Response::json($data);
 }));
 
-Route::get('{blog?}',function($posts){
+Route::get('blogs/{blog?}',function($posts){
       $posts=Posts::where('post_title','=',$posts)
 		    ->select('post_title','post_content','updated_at','created_at')
 		    ->get();
@@ -51,4 +51,26 @@ Route::get('logout', function()
 {
     Auth::logout();
     return Redirect::to('login');
+});
+
+
+Route::get('sitemap', function(){
+
+    $sitemap = App::make("sitemap");
+
+    // set item's url, date, priority, freq
+    $sitemap->add(URL::to('blogs'), '2012-08-25T20:10:00+02:00', '1.0', 'daily');
+    $sitemap->add(URL::to('posts'), '2012-08-26T12:30:00+02:00', '0.9', 'monthly');
+
+    $posts = DB::table('posts')->orderBy('created_at', 'updated_at')->get();
+
+
+    foreach ($posts as $post)
+    {
+        $sitemap->add($post->post_title, $post->created_at, '0.8', 'daily');
+    }
+
+    // show your sitemap (options: 'xml' (default), 'html', 'txt', 'ror-rss', 'ror-rdf')
+    return $sitemap->render('xml');
+
 });

@@ -19,7 +19,7 @@ hello
 @foreach ($box_office as $box_office)
     标题<p>{{ $box_office->post_title}} {{ $box_office->created_at }}</p>
     正文<p>{{ $box_office->post_content}}</p>
-    <a href="/{{ $box_office->post_title}}">more</a>
+    <a href="<?= url('/blogs/{{ $box_office->post_title}}') ?>">more</a>
 @endforeach
 @stop
 
