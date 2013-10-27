@@ -12,7 +12,6 @@ class UserLogin extends BaseController {
  
         if(Auth::attempt($userdata))
         {
-            // we are now logged in, go to admin
             return Redirect::to('administrator');
         }
         else

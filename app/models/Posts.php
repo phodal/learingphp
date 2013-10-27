@@ -5,7 +5,6 @@ class Posts extends Eloquent {
 	(
 		'post_title'=>'required',
 		'post_content'=>'required',
-		'updated_at'=>'required',
 	);
 	public function posts()
 	{

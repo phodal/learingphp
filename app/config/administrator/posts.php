@@ -18,17 +18,17 @@ return array(
 	 * The display columns
 	 */
 	'columns' => array(
-		'id',
+
 		'author' => array(
-			'title' => 'author',
+			'title' => '作者',
 			'select' => "author",
 		),
 		'post_title'=>array(
-			'title'=>'post_title',
+			'title'=>'标题',
 			'select'=>'post_title',
 		),
 		'post_content'=>array(
-			'title'=>'post_content',
+			'title'=>'内容',
 			'select'=>'post_content',
 		),
 		'updated_at'=>array(
@@ -65,21 +65,10 @@ return array(
 	 * The editable fields
 	 */
 	'edit_fields' => array(
+		/*
 		'author' => array(
 			'title'=>'作者',
 			'type'=>'text',
-			'name_field' => 'name',
-		),
-		'post_title'=> array(
-			'title'=>'标题',
-			'type'=>'text',
-			'name_field' => 'name',
-		),
-		'post_content'=>array(
-			'title'=>'内容',
-			'type'=>'wysiwyg',
-			'name_field' => 'name',
-
 		),
 		'updated_at'=>array(
 			'title'=>'时间',
@@ -87,7 +76,17 @@ return array(
 			'date_format' => 'yy-mm-dd',
 			'sort_field' => 'updated_at',
 
+		),*/
+		'post_title'=> array(
+			'title'=>'标题',
+			'type'=>'text',
 		),
+		'post_content'=>array(
+			'title'=>'内容',
+			'type'=>'wysiwyg',
+			'name_field' => 'name',
+		),
+
 	),
 
 );

@@ -11,7 +11,6 @@ class DatabaseSeeder extends Seeder {
 	{
 		Eloquent::unguard();
 		$this->call('UserTableSeeder');
-		$this->call('PostsTableSeeder');
 		$this->command->info('User table seeded!');
 
 	}
@@ -26,15 +25,5 @@ class UserTableSeeder extends Seeder{
 			'email'=>'gmszone@phodal.com',
 			'led1'=>'true'
 		));
-	}
-}
-class PostsTableSeeder extends Seeder{
-	public function run()
-	{
-		Posts::create(array(
-				'author'=>'admin',
-				'post_content'=>'Welcomt the PlanDCMS',
-				'post_title'=>'This is the first page fo PlanDCMS'
-			));
 	}
 }

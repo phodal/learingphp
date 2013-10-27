@@ -46,14 +46,74 @@
 </div>
 <div class="container">
   <div class="row-fluid">
-		<div class="col-lg-10">
- 			@yield('content')	
- 		</div>
+
+		<div class="col-lg-5">
+			<div class="panel panel-default">
+					<div class="panel-heading">
+						<h3 class="panel-title">Panel title</h3>
+					</div>
+					<div class="panel-body">
+			 			@yield('content')	
+			 		</div>
+	 		</div>
+ 	    </div>
+
+		<div class="col-lg-5">
+			<div class="panel panel-default">
+					<div class="panel-heading">
+						<h3 class="panel-title">Panel title</h3>
+					</div>
+					<div class="panel-body">
+			 			@yield('content')	
+			 		</div>
+	 		</div>
+ 	    </div>
+
  		<div class="col-lg-2">
  			@yield('panel')
  		</div>
     </div>
 </div>
+<div class="container">
+  <div class="row-fluid">
+
+		<div class="col-lg-4">
+			<div class="panel panel-default">
+					<div class="panel-heading">
+						<h3 class="panel-title">Panel title</h3>
+					</div>
+					<div class="panel-body">
+			 			@yield('content')	
+			 		</div>
+	 		</div>
+ 	    </div>
+
+		<div class="col-lg-4">
+			<div class="panel panel-default">
+					<div class="panel-heading">
+						<h3 class="panel-title">Panel title</h3>
+					</div>
+					<div class="panel-body">
+			 			@yield('content')	
+			 		</div>
+	 		</div>
+ 	    </div>
+
+		<div class="col-lg-4">
+			<div class="panel panel-default">
+					<div class="panel-heading">
+						<h3 class="panel-title">Panel title</h3>
+					</div>
+					<div class="panel-body">
+			 			@yield('content')	
+			 		</div>
+	 		</div>
+ 	    </div>
+
+
+    </div>
+</div>
+
 <script type="text/javascript" src="<?= url('js/jquery.min.js')?>"></script>
 <script type="text/javascript" src="<?= url('js/bootstrap.min.js') ?>"></script>
 
