@@ -18,14 +18,11 @@
 	},
 	"scripts": {
 		"post-install-cmd": [
-			"php artisan optimize",
-			"php artisan asset:publish frozennode/administrator"
+			"php artisan optimize"
 		],
 		"post-update-cmd": [
 			"php artisan clear-compiled",
-			"php artisan optimize",
-			"php artisan asset:publish frozennode/administrator"
-
+			"php artisan optimize"
 		],
 		"post-create-project-cmd": [
 			"php artisan key:generate"
@@ -38,6 +35,7 @@
 	"require": {
         "dark/smarty-view": "dev-master",
         "davzie/laravel-bootstrap": "dev-master",
+        "roumen/sitemap": "dev-master",
         "frozennode/administrator": "dev-master"
     },
 	"minimum-stability": "dev"
