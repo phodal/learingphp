@@ -13,6 +13,7 @@ class DatabaseSeeder extends Seeder {
 		$this->call('UserTableSeeder');
 		$this->call('RolesTableSeeder');
 		$this->call('UsersRolesTableSeeder');
+		$this->call('AthomesTableSeeder');
 		$this->call('NavsTableSeeder');
 
 	}
@@ -52,6 +53,28 @@ class NavsTableSeeder extends Seeder{
 		Navs::create(array(
 			'nav_name'=>'首页',
 			'nav_en'=>'Home'
+		));
+		Navs::create(array(
+			'nav_name'=>'关于我们',
+			'nav_en'=>'About'
+		));
+	}
+}
+class AthomesTableSeeder extends Seeder
+{
+	public function run()
+	{
+		Athomes::create(array(
+			'temperature'=>'19.8',
+			'sensors1'=>'22.2',
+			'sensors2'=>'7.5',
+			'led1'=>False
+		));
+		Athomes::create(array(
+			'temperature'=>'18.8',
+			'sensors1'=>'22.0',
+			'sensors2'=>'7.6',
+			'led1'=>False
 		));
 	}
 }

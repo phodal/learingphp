@@ -30,6 +30,15 @@ Route::get('users/{users?}',array('before'=>'auth.basic',function($users){
 	return Response::json($data);
 }));
 
+Route::get('/athome/{atid}',function($atid){
+	$atdata=Athomes::where('id','=',$atid)->get();
+	return Response::json($atdata);
+});
+
+Route::get('/athome',function(){
+	return View::make('athome');
+});
+
 Route::get('blogs/{blog?}',function($posts){
 	$navbars=Navs::all();
     $posts=Posts::where('post_title','=',$posts)
