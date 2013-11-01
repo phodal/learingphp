@@ -9,8 +9,29 @@
 	    <title>@yield('title')</title>
 		<link rel="stylesheet" type="text/css" href="<?= url('css/bootstrap.min.css') ?>" />
 	    <link rel="stylesheet" href="<?= url('css/justified-nav.css') ?>" type="text/css" media="screen" />
+        <style >
+        .chart {
+		    background: #eee;
+		    padding: 3px;
+		}
 
+		.chart div {
+		  width: 0;
+		  transition: all 1s ease-out;
+		  -moz-transition: all 1s ease-out;
+		  -webkit-transition: all 1s ease-out;
+		}
 
+		.chart div {
+		  font: 10px sans-serif;
+		  background-color: steelblue;
+		  text-align: right;
+		  padding: 3px;
+		  margin: 5px;
+		  color: white;
+		  box-shadow: 2px 2px 2px #666;
+		}
+		</style>
 	</head>
 <body>
 
@@ -30,10 +51,10 @@
 				      <pre>http status code: <%status%></pre>
 				      <pre>http response data: <%data%></pre>
 				    </div>
+				        <div ng-app="chartApp" ng-controller="Ctrl">
+				           <bars-chart chart-data="myData"  ></bars-chart>
+                        </div>
 					</div>
-					<div class="panel-body">
-			 			@yield('content')	
-			 		</div>
 	 		</div>
  	    </div>
 
@@ -51,6 +72,8 @@
 <script type="text/javascript" src="<?= url('js/bootstrap.min.js') ?>"></script>
 <script type="text/javascript" src="<?= url('js/angular.min.js') ?>"></script>
 <script type="text/javascript" src="<?= url('js/log.js') ?>"></script>
+<script type="text/javascript" src="<?= url('js/d3.v3.min.js') ?>"></script>
+
 <script type="text/javascript">
 log('[c="font-family: \'Helvetica Neue\', Helvetica, Arial, sans-serif; color: #fff; font-size: 20px; padding: 15px 20px; background: #444; border-radius: 4px; line-height: 100px; text-shadow: 0 1px #000"]Console[c]');
 
@@ -63,10 +86,10 @@ log('[c="font-family: \'Helvetica Neue\', Helvetica, Arial, sans-serif; color: #
 		log.l('%c Enjoying it ！%c','', bold, '');
 </script>
 <script>
-var myApp = angular.module('myApp', [], function($interpolateProvider) {
-    $interpolateProvider.startSymbol('<%');
-    $interpolateProvider.endSymbol('%>');
-});
+	var myApp = angular.module('myApp', [], function($interpolateProvider) {
+	    $interpolateProvider.startSymbol('<%');
+	    $interpolateProvider.endSymbol('%>');
+	});
 
 	function FetchCtrl($scope, $http, $templateCache) {
 	  $scope.method = 'GET';
@@ -88,7 +111,28 @@ var myApp = angular.module('myApp', [], function($interpolateProvider) {
 	    });
 	}
 
+	angular.module('chartApp', []).
+	   directive('barsChart', function ($parse) {
+	     var directiveDefinitionObject = {
+	         restrict: 'E',
+	         replace: false,
+	         scope: {data: '=chartData'},
+	         link: function (scope, element, attrs) {
+	           var chart = d3.select(element[0]);
+	            chart.append("div").attr("class", "chart")
+	             .selectAll('div')
+	             .data(scope.data).enter().append("div")
+	             .transition().ease("elastic")
+	             .style("width", function(d) { return d + "%"; })
+	             .text(function(d) { return d + "%"; });
+	         } 
+	      };
+	      return directiveDefinitionObject;
+	   });
 
+	function Ctrl($scope) {
+	    $scope.myData = [10,20,30,40,60, 80, 20, 50];
+	}	
 </script>
 
 
