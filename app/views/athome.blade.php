@@ -19,29 +19,14 @@
 
 <div class="container">
   <div class="row-fluid">
-
- 		<div class="col-lg-2">
- 			@yield('panel')
- 		</div>
  		
-		<div class="col-lg-10">
+		<div class="col-lg-12">
 			<div class="panel panel-default">
 					<div class="panel-heading">
 						<h3 class="panel-title">Panel title</h3>
 					</div>
 					<div class="panel-body">
 				      <div ng-app="myApp" ng-controller="FetchCtrl">
-				      <select ng-model="method">
-				        <option>GET</option>
-				        <option>JSONP</option>
-				      </select>
-				      <input type="text" ng-model="url" size="80"/>
-				      <button ng-click="fetch()">fetch</button><br>
-				      <button
-				        ng-click="updateModel('JSONP',
-				                      '<?= url('athome/1/') ?>')">
-				        Sample JSONP
-				      </button>
 				      <pre>http status code: <%status%></pre>
 				      <pre>http response data: <%data%></pre>
 				    </div>
@@ -85,31 +70,22 @@ var myApp = angular.module('myApp', [], function($interpolateProvider) {
 
 	function FetchCtrl($scope, $http, $templateCache) {
 	  $scope.method = 'GET';
-	  $scope.url = '';
-	  log.l("Test");
+	  $scope.url = '<?= url('/athome/1') ?>';
 
-	  $scope.fetch = function() {
-	    $scope.code = null;
-	    $scope.response = null;
+	  $scope.code = null;
+	  $scope.response = null;
 	 
-	    $http({method: $scope.method, url: $scope.url, cache: $templateCache}).
-	      success(function(data, status) {
+	  $http({method: $scope.method, url: $scope.url, cache: $templateCache}).
+	    success(function(data, status) {
 	        $scope.status = status;
 	        $scope.data = data;
 	        log.l(data);
-	      }).
-	      error(function(data, status) {
+	    }).
+	    error(function(data, status) {
 	        $scope.data = data || "Request failed";
-	        log.l(data);
 	        $scope.status = status;
 	        log.l("Request Failed");
 	    });
-	  };
-	 
-	  $scope.updateModel = function(method, url) {
-	    $scope.method = method;
-	    $scope.url = url;
-	  };
 	}
 
 
