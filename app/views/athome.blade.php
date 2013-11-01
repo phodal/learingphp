@@ -91,6 +91,7 @@ log('[c="font-family: \'Helvetica Neue\', Helvetica, Arial, sans-serif; color: #
 	    $interpolateProvider.startSymbol('<%');
 	    $interpolateProvider.endSymbol('%>');
 	});
+	var sensorsData=[];
 
 	function FetchCtrl($scope, $http, $templateCache) {
 	  $scope.method = 'GET';
@@ -103,7 +104,9 @@ log('[c="font-family: \'Helvetica Neue\', Helvetica, Arial, sans-serif; color: #
 	    success(function(data, status) {
 	        $scope.status = status;
 	        $scope.data = data;
-	        log.l(data);
+	        $.each(data,function(key,val){
+	        	sensorsData.push(val.sensors1);
+	        })
 	    }).
 	    error(function(data, status) {
 	        $scope.data = data || "Request failed";
@@ -119,6 +122,7 @@ log('[c="font-family: \'Helvetica Neue\', Helvetica, Arial, sans-serif; color: #
          replace: false,
          scope: {data: '=chartData'},
          link: function (scope, element, attrs) {
+
              var chart = d3.select(element[0]);
              chart.append("div").attr("class", "chart")
              .selectAll('div')
@@ -126,15 +130,39 @@ log('[c="font-family: \'Helvetica Neue\', Helvetica, Arial, sans-serif; color: #
              .transition().ease("elastic")
              .style("width", function(d) { return d + "%"; })
              .text(function(d) { return d + "%"; });
+             
            } 
       };
-      log.l('Run');
+      log.l('App2 ChartApp is Run');
       return directiveDefinitionObject;
    });
-   
+   	var SenData=[];
 
-	function Ctrl($scope) {
-	    $scope.myData = [10,20,30,40,60, 80, 20, 50];
+	function Ctrl($scope,$http,$templateCache) {
+	  log.l("Ctrl Run??");
+	  $scope.method = 'GET';
+	  $scope.url = '<?= url('/athome/1') ?>';
+
+	  $scope.code = null;
+	  $scope.response = null;
+	  
+	  $scope.myData=[10]
+	  $http({method: $scope.method, url: $scope.url, cache: $templateCache}).
+	    success(function(data, status) {
+	        $scope.status = status;
+	        $scope.data = data;
+	        $.each(data,function(key,val){
+	        	log.l(val.sensors1);
+				$scope.myData.push(Math.floor(val.sensors1));
+				log.l($scope.myData);
+	        })
+	    }).
+	    error(function(data, status) {
+	        $scope.data = data || "Request failed";
+	        $scope.status = status;
+	        log.l("Request Failed");
+	    });
+	    
 	}	
 	angular.bootstrap(document.getElementById("App2"),['chartApp']);
 

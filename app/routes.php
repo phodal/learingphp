@@ -92,7 +92,9 @@ Route::get('sitemap', function(){
 
 
 Route::get('/athome/{atid}',function($atid){
-	$atdata=Athomes::where('id','=',$atid)->get();
+	$atdata=Athomes::where('id','=',$atid)
+						->select('id','temperature','sensors1','sensors2','led1')
+						->get();
 	return Response::json($atdata);
 });
 
