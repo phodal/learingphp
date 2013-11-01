@@ -130,9 +130,10 @@ log('[c="font-family: \'Helvetica Neue\', Helvetica, Arial, sans-serif; color: #
              .transition().ease("elastic")
              .style("width", function(d) { return d + "%"; })
              .text(function(d) { return d + "%"; });
-             
+
            } 
       };
+      
       log.l('App2 ChartApp is Run');
       return directiveDefinitionObject;
    });
