@@ -47,13 +47,14 @@
 						<h3 class="panel-title">Panel title</h3>
 					</div>
 					<div class="panel-body">
-				      <div ng-app="myApp" ng-controller="FetchCtrl">
+				    <div id="App1" ng-app="myApp" ng-controller="FetchCtrl">
 				      <pre>http status code: <%status%></pre>
 				      <pre>http response data: <%data%></pre>
 				    </div>
-				        <div ng-app="chartApp" ng-controller="Ctrl">
-				           <bars-chart chart-data="myData"  ></bars-chart>
-                        </div>
+
+				    <div id="App2" ng-app="chartApp" ng-controller="Ctrl">
+					    <bars chart-data="myData"  ></bars>
+					</div>
 					</div>
 	 		</div>
  	    </div>
@@ -111,28 +112,32 @@ log('[c="font-family: \'Helvetica Neue\', Helvetica, Arial, sans-serif; color: #
 	    });
 	}
 
-	angular.module('chartApp', []).
-	   directive('barsChart', function ($parse) {
-	     var directiveDefinitionObject = {
-	         restrict: 'E',
-	         replace: false,
-	         scope: {data: '=chartData'},
-	         link: function (scope, element, attrs) {
-	           var chart = d3.select(element[0]);
-	            chart.append("div").attr("class", "chart")
-	             .selectAll('div')
-	             .data(scope.data).enter().append("div")
-	             .transition().ease("elastic")
-	             .style("width", function(d) { return d + "%"; })
-	             .text(function(d) { return d + "%"; });
-	         } 
-	      };
-	      return directiveDefinitionObject;
-	   });
+	var chartApp=angular.module('chartApp', []).
+	directive('bars', function ($parse) {
+     var directiveDefinitionObject = {
+         restrict: 'E',
+         replace: false,
+         scope: {data: '=chartData'},
+         link: function (scope, element, attrs) {
+             var chart = d3.select(element[0]);
+             chart.append("div").attr("class", "chart")
+             .selectAll('div')
+             .data(scope.data).enter().append("div")
+             .transition().ease("elastic")
+             .style("width", function(d) { return d + "%"; })
+             .text(function(d) { return d + "%"; });
+           } 
+      };
+      log.l('Run');
+      return directiveDefinitionObject;
+   });
+   
 
 	function Ctrl($scope) {
 	    $scope.myData = [10,20,30,40,60, 80, 20, 50];
 	}	
+	angular.bootstrap(document.getElementById("App2"),['chartApp']);
+
 </script>
 
 
