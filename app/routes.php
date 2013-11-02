@@ -44,6 +44,9 @@ Route::get('page/{navs?}',function($navs){
 	$navigation=Navs::where('nav_name','=',$navs)->get();
 	$navbars=Navs::all();
  	$posts=Posts::all();
+ 	if($navs=="Home"){
+ 		return Redirect::to('/');
+ 	}
     return View::make('admin_main')
     								->with('navbars',$navbars)
     								->with('posts',$posts)

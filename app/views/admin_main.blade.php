@@ -1,7 +1,7 @@
 @extends('template')
 
 @section('title')
-$page_name
+{{ $page_name}}
 @stop
 
 @section('content')
