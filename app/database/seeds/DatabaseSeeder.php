@@ -2,11 +2,6 @@
 
 class DatabaseSeeder extends Seeder {
 
-	/**
-	 * Run the database seeds.
-	 *
-	 * @return void
-	 */
 	public function run()
 	{
 		Eloquent::unguard();
@@ -15,7 +10,7 @@ class DatabaseSeeder extends Seeder {
 		$this->call('UsersRolesTableSeeder');
 		$this->call('AthomesTableSeeder');
 		$this->call('NavsTableSeeder');
-
+		$this->call('ColumnsTableSeeder');
 	}
 }
 
@@ -75,6 +70,15 @@ class AthomesTableSeeder extends Seeder
 			'sensors1'=>'22.0',
 			'sensors2'=>'7.6',
 			'led1'=>False
+		));
+	}
+}
+class ColumnsTableSeeder extends Seeder
+{
+	public function run()
+	{
+		Columns::create(array(
+			'columns_name'=>'今日要闻'
 		));
 	}
 }

@@ -6,6 +6,9 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'Athomes' => $baseDir . '/app/models/Athomes.php',
+    'AthomesController' => $baseDir . '/app/controllers/AthomesController.php',
+    'AthomesTableSeeder' => $baseDir . '/app/database/seeds/DatabaseSeeder.php',
     'BaseController' => $baseDir . '/app/controllers/BaseController.php',
     'Carbon\\Carbon' => $vendorDir . '/nesbot/carbon/src/Carbon/Carbon.php',
     'ClassPreloader\\Application' => $vendorDir . '/classpreloader/classpreloader/src/ClassPreloader/Application.php',
@@ -18,8 +21,9 @@ return array(
     'ClassPreloader\\Parser\\DirVisitor' => $vendorDir . '/classpreloader/classpreloader/src/ClassPreloader/Parser/DirVisitor.php',
     'ClassPreloader\\Parser\\FileVisitor' => $vendorDir . '/classpreloader/classpreloader/src/ClassPreloader/Parser/FileVisitor.php',
     'ClassPreloader\\Parser\\NodeTraverser' => $vendorDir . '/classpreloader/classpreloader/src/ClassPreloader/Parser/NodeTraverser.php',
-    'CreateAthomeTable' => $baseDir . '/app/database/migrations/2013_10_31_144403_create_athome_table.php',
+    'CreateAthomesTable' => $baseDir . '/app/database/migrations/2013_10_31_144403_create_athomes_table.php',
     'CreateBlocksTable' => $vendorDir . '/davzie/laravel-bootstrap/src/migrations/2013_08_22_172900_create_blocks_table.php',
+    'CreateColumn' => $baseDir . '/app/database/migrations/2013_11_02_131407_create_column.php',
     'CreateGalleriesTable' => $vendorDir . '/davzie/laravel-bootstrap/src/migrations/2013_08_29_164900_create_galleries_table.php',
     'CreateNavs' => $baseDir . '/app/database/migrations/2013_10_27_094353_create_navs.php',
     'CreatePostsTable' => $baseDir . '/app/database/migrations/2013_10_24_070820_create_posts_table.php',

@@ -62,7 +62,7 @@
 		<div class="col-lg-5">
 			<div class="panel panel-default">
 					<div class="panel-heading">
-						<h3 class="panel-title">Panel title</h3>
+						<h3 class="panel-title">@yield('Columns')</h3>
 					</div>
 					<div class="list-group">
 			 			@yield('content')	

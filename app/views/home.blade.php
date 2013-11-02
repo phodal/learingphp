@@ -10,6 +10,13 @@
 PlanD CMS
 @stop
 
+@section('Columns')
+@foreach($col_set as $cols)
+{{ $cols->columns_name}}
+
+@endforeach
+@stop
+
 @section('content')
 @foreach ($news_posts as $news_post)
     <li class="list-group-item"><a href="{{ URL::to('/blogs/' .$news_post->post_title) }} " 
