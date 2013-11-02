@@ -75,6 +75,7 @@
 <script type="text/javascript" src="<?= url('js/log.js') ?>"></script>
 <script type="text/javascript" src="<?= url('js/d3.v3.min.js') ?>"></script>
 <script type="text/javascript" src="<?= url('js/line-chart.min.js') ?>"></script>
+<script type="text/javascript" src="<?= url('js/angular-locale_zh-cn.js') ?>"></script>
 
 <script type="text/javascript">
 log('[c="font-family: \'Helvetica Neue\', Helvetica, Arial, sans-serif; color: #fff; font-size: 20px; padding: 15px 20px; background: #444; border-radius: 4px; line-height: 100px; text-shadow: 0 1px #000"]Console[c]');
@@ -117,22 +118,35 @@ log('[c="font-family: \'Helvetica Neue\', Helvetica, Arial, sans-serif; color: #
 	}
 
 	var app = angular.module('chartApp', ['n3-charts.linechart']);
+	app.controller('MainCtrl', function($scope, $http, $templateCache) {
+	  $scope.data = [{x: 0, value: 12}];
 
-	app.controller('MainCtrl', function($scope) {
-	  $scope.data = [{x: 0, value: 12}, {x: 1, value: 4}, {x: 2, value: 7}, {x: 3, value: 0}];
-	  
-	  // Line
-	  //$scope.options = {series: [{y: 'value', color: 'steelblue'}]};
-	  
-	  // Area
-	  //$scope.options = {series: [{y: 'value', type: 'area', color: 'steelblue'}]};
-	  
-	  // Column
-	  //$scope.options = {series: [{y: 'value', type: 'column', color: 'steelblue'}]};
-	  
-	  // Interpolation
+	  log.l($scope.data);
+
+	  $scope.method = 'GET';
+	  $scope.url = '<?= url('/athome/1') ?>';
+
+	  $scope.code = null;
+	  $scope.response = null;
+	 
+	  $http({method: $scope.method, url: $scope.url, cache: $templateCache}).
+	    success(function(data, status) {
+	        $scope.status = status;
+	        $.each(data,function(key,val){
+	        	$scope.data.push({x:1,value:val.sensors1});
+	        	$scope.data.push({x:2,value:val.sensors1});
+	        	log.l($scope.data);
+	        })
+	    }).
+	    error(function(data, status) {
+	        $scope.data = data || "Request failed";
+	        $scope.status = status;
+	        log.l("Request Failed");
+	    });
+	  //$scope.options = {series: [{y: 'value', color: 'steelblue'}]}
+	  //$scope.options = {series: [{y: 'value', type: 'area', color: 'steelblue'}]}
+	  //$scope.options = {series: [{y: 'value', type: 'column', color: 'steelblue'}]}
 	  $scope.options = {lineMode: 'cardinal', series: [{y: 'value', color: 'steelblue'}]};
-	  
 	});
 
 	angular.bootstrap(document.getElementById("App2"),['chartApp']);
