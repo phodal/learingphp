@@ -53,8 +53,7 @@
 				    </div>
 
 				    <div id="App2" ng-controller="MainCtrl">
-				        <button ng-click="click()" class="btn btn-success"><span class="glyphicon glyphicon-refresh"></span> Star
-获取数据</button>
+				        <button ng-click="click()" class="btn btn-success"><span class="glyphicon glyphicon-refresh"></span>获取数据</button>
 					    <linechart data='data' options='options'></linechart>
 					</div>
 					</div>
