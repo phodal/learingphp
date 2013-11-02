@@ -53,7 +53,8 @@
 				    </div>
 
 				    <div id="App2" ng-controller="MainCtrl">
-				        <button ng-click="click()">Refresh</button>
+				        <button ng-click="click()" class="btn btn-success"><span class="glyphicon glyphicon-refresh"></span> Star
+获取数据</button>
 					    <linechart data='data' options='options'></linechart>
 					</div>
 					</div>
@@ -120,21 +121,20 @@ log('[c="font-family: \'Helvetica Neue\', Helvetica, Arial, sans-serif; color: #
 
 	var app = angular.module('chartApp', ['n3-charts.linechart']);
 	app.controller('MainCtrl', function($scope, $http, $templateCache) {
-		$scope.data=[{x:0,value:12},{x:1,value:19},{x:2,value:18}];
-	    $scope.options = {lineMode: 'cardinal',axes:[{type:'date'}],series: [{y: 'value', label: '温度', color: 'steelblue'}]};
 		$scope.click=function(){
-			$scope.data=[];
+			$scope.options = {lineMode: 'cardinal',series: [{y: 'value', label: '温度', color: 'steelblue'}]};
 			$scope.data=[{x:0,value:12}];
-			log.l($scope.data);
+	        $scope.url = '<?= url('/athome') ?>';
+            $scope.url=$scope.url+'/'+{{$maxid}};
+			log.l($scope.url);
 
 			$scope.method = 'GET';
-			$scope.url = '<?= url('/athome/1') ?>';
 			 
 			$http({method: $scope.method, url: $scope.url, cache: $templateCache}).
 			    success(function(data, status) {
 			        $.each(data,function(key,val){
 			        	$scope.data.push({x:1,value:val.sensors1});
-			        	$scope.data.push({x:2,value:val.sensors1});
+			        	$scope.data.push({x:2,value:val.sensors2});
 			        	log.l($scope.data);
 			        })
 			    }).
@@ -142,7 +142,6 @@ log('[c="font-family: \'Helvetica Neue\', Helvetica, Arial, sans-serif; color: #
 			        $scope.data = data || "Request failed";
 			        log.l("Request Failed");
 			    });
-			$scope.options = {lineMode: 'cardinal',axes:[{type:'linear'}],series: [{y: 'value', label: '温度', color: 'steelblue'}]};
 		}
 	});
 

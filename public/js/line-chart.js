@@ -12,8 +12,9 @@ angular.module('n3-charts.linechart', ['n3charts.utils'])
       var bottom = n3utils.getPixelCssProp(element[0].parentElement, 'padding-bottom');
       var left = n3utils.getPixelCssProp(element[0].parentElement, 'padding-left');
       var right = n3utils.getPixelCssProp(element[0].parentElement, 'padding-right');
+      //dimensions.height = (element[0].parentElement.offsetHeight || 500) - top - bottom;
       dimensions.width = (element[0].parentElement.offsetWidth || 900) - left - right;
-      dimensions.height = (element[0].parentElement.offsetHeight || 500) - top - bottom;
+      dimensions.height = 400;
     };
 
     scope.update = function() {
