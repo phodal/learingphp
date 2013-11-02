@@ -99,5 +99,6 @@ Route::get('/athome/{atid}',function($atid){
 });
 
 Route::get('/athome',function(){
-	return View::make('athome');
+	$maxid=Athomes::max('id');
+	return View::make('athome')->with('maxid',$maxid);
 });

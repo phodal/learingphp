@@ -44,7 +44,7 @@
 		<div class="col-lg-12">
 			<div class="panel panel-default">
 					<div class="panel-heading">
-						<h3 class="panel-title">Panel title</h3>
+						<h3 class="panel-title">Panel title  {{ $maxid}}</h3>
 					</div>
 					<div class="panel-body">
 				    <div id="App1" ng-app="myApp" ng-controller="FetchCtrl">
@@ -53,6 +53,7 @@
 				    </div>
 
 				    <div id="App2" ng-controller="MainCtrl">
+				        <button ng-click="click()">Refresh</button>
 					    <linechart data='data' options='options'></linechart>
 					</div>
 					</div>
@@ -74,7 +75,7 @@
 <script type="text/javascript" src="<?= url('js/angular.min.js') ?>"></script>
 <script type="text/javascript" src="<?= url('js/log.js') ?>"></script>
 <script type="text/javascript" src="<?= url('js/d3.v3.min.js') ?>"></script>
-<script type="text/javascript" src="<?= url('js/line-chart.min.js') ?>"></script>
+<script type="text/javascript" src="<?= url('js/line-chart.js') ?>"></script>
 <script type="text/javascript" src="<?= url('js/angular-locale_zh-cn.js') ?>"></script>
 
 <script type="text/javascript">
@@ -119,34 +120,30 @@ log('[c="font-family: \'Helvetica Neue\', Helvetica, Arial, sans-serif; color: #
 
 	var app = angular.module('chartApp', ['n3-charts.linechart']);
 	app.controller('MainCtrl', function($scope, $http, $templateCache) {
-	  $scope.data = [{x: 0, value: 12}];
+		$scope.data=[{x:0,value:12},{x:1,value:19},{x:2,value:18}];
+	    $scope.options = {lineMode: 'cardinal',axes:[{type:'date'}],series: [{y: 'value', label: '温度', color: 'steelblue'}]};
+		$scope.click=function(){
+			$scope.data=[];
+			$scope.data=[{x:0,value:12}];
+			log.l($scope.data);
 
-	  log.l($scope.data);
-
-	  $scope.method = 'GET';
-	  $scope.url = '<?= url('/athome/1') ?>';
-
-	  $scope.code = null;
-	  $scope.response = null;
-	 
-	  $http({method: $scope.method, url: $scope.url, cache: $templateCache}).
-	    success(function(data, status) {
-	        $scope.status = status;
-	        $.each(data,function(key,val){
-	        	$scope.data.push({x:1,value:val.sensors1});
-	        	$scope.data.push({x:2,value:val.sensors1});
-	        	log.l($scope.data);
-	        })
-	    }).
-	    error(function(data, status) {
-	        $scope.data = data || "Request failed";
-	        $scope.status = status;
-	        log.l("Request Failed");
-	    });
-	  //$scope.options = {series: [{y: 'value', color: 'steelblue'}]}
-	  //$scope.options = {series: [{y: 'value', type: 'area', color: 'steelblue'}]}
-	  //$scope.options = {series: [{y: 'value', type: 'column', color: 'steelblue'}]}
-	  $scope.options = {lineMode: 'cardinal', series: [{y: 'value', color: 'steelblue'}]};
+			$scope.method = 'GET';
+			$scope.url = '<?= url('/athome/1') ?>';
+			 
+			$http({method: $scope.method, url: $scope.url, cache: $templateCache}).
+			    success(function(data, status) {
+			        $.each(data,function(key,val){
+			        	$scope.data.push({x:1,value:val.sensors1});
+			        	$scope.data.push({x:2,value:val.sensors1});
+			        	log.l($scope.data);
+			        })
+			    }).
+			    error(function(data, status) {
+			        $scope.data = data || "Request failed";
+			        log.l("Request Failed");
+			    });
+			$scope.options = {lineMode: 'cardinal',axes:[{type:'linear'}],series: [{y: 'value', label: '温度', color: 'steelblue'}]};
+		}
 	});
 
 	angular.bootstrap(document.getElementById("App2"),['chartApp']);
