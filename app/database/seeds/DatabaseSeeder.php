@@ -80,5 +80,8 @@ class ColumnsTableSeeder extends Seeder
 		Columns::create(array(
 			'columns_name'=>'今日要闻'
 		));
+		Columns::create(array(
+			'columns_name'=>'公司新闻'
+		));
 	}
 }
