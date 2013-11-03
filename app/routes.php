@@ -40,7 +40,7 @@ Route::get('blogs/{blog?}',function($posts){
 		    ->get();
     $blogs=$posts;
     return View::make('blogs')->with('posts',$posts)
-      							->with('navbars',$navbars);
+      						  ->with('navbars',$navbars);
 });
 
 Route::get('page/{navs?}',function($navs){

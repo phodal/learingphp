@@ -11,7 +11,6 @@ class DatabaseSeeder extends Seeder {
 		$this->call('AthomesTableSeeder');
 		$this->call('NavsTableSeeder');
 		$this->call('ColumnsTableSeeder');
-		$this->call('PostsTableSeeder');
 	}
 }
 
@@ -83,16 +82,6 @@ class ColumnsTableSeeder extends Seeder
 		));
 		Columns::create(array(
 			'columns_name'=>'公司新闻'
-		));
-	}
-}
-class PostsTableSeeder extends Seeder
-{
-	public function run()
-	{
-		Posts::create(array(
-			'post_title'=>'标题测试',
-			'post_content'=>'内容测试'
 		));
 	}
 }
