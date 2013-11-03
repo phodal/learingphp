@@ -59,27 +59,7 @@
 <div class="container">
   <div class="row-fluid">
 
-		<div class="col-lg-5">
-			<div class="panel panel-default">
-					<div class="panel-heading">
-						<h3 class="panel-title">@yield('Columns')</h3>
-					</div>
-					<div class="list-group">
-			 			@yield('content')	
-			 		</div>
-	 		</div>
- 	    </div>
-
-		<div class="col-lg-5">
-			<div class="panel panel-default">
-					<div class="panel-heading">
-						<h3 class="panel-title">Panel title</h3>
-					</div>
-					<div class="list-group">
-			 			@yield('content')	
-			 		</div>
-	 		</div>
- 	    </div>
+		@yield('Columns')
 
  		<div class="col-lg-2">
  			@yield('panel')
