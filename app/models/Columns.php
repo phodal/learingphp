@@ -1,9 +1,6 @@
 <?php
 
 class Columns extends Eloquent {
-	public static $rules=array
-	(
-
-	);
+	protected $table = 'columns';
 
 }

@@ -7,18 +7,11 @@
 return array(
 
 	'title' => '文章',
-
 	'single' => '内容',
-
 	'model' => 'Posts',
-	
 	'form_width' => 960,
 
-	/**
-	 * The display columns
-	 */
 	'columns' => array(
-
 		'author' => array(
 			'title' => '作者',
 			'select' => "author",
@@ -39,9 +32,7 @@ return array(
 
 	),
 
-	/**
-	 * The filter set
-	 */
+
 	'filters' => array(
 		'author' => array(
 			'title'=>'作者',
@@ -61,22 +52,7 @@ return array(
 
 	),
 
-	/**
-	 * The editable fields
-	 */
 	'edit_fields' => array(
-		/*
-		'author' => array(
-			'title'=>'作者',
-			'type'=>'text',
-		),
-		'updated_at'=>array(
-			'title'=>'时间',
-			'type'=>'date',
-			'date_format' => 'yy-mm-dd',
-			'sort_field' => 'updated_at',
-
-		),*/
 		'post_title'=> array(
 			'title'=>'标题',
 			'type'=>'text',

@@ -1,9 +1,5 @@
 <?php
 
-/**
- * Box Office model config
- */
-
 return array(
 
 	'title' => '导航',
@@ -12,9 +8,6 @@ return array(
 
 	'model' => 'Navs',
 	
-	/**
-	 * The display columns
-	 */
 	'columns' => array(
 		'id' => array(
 			'title'=>'id',
@@ -30,9 +23,6 @@ return array(
 		),
 	),
 
-	/**
-	 * The filter set
-	 */
 	'filters' => array(
 		'nav_name' => array(
 			'title'=>'标题',
@@ -44,9 +34,6 @@ return array(
 		),
 	),
 
-	/**
-	 * The editable fields
-	 */
 	'edit_fields' => array(	
 		'nav_name' => array(
 			'title'=>'标题',

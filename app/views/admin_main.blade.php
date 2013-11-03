@@ -5,7 +5,12 @@
 @stop
 
 @section('content')
-
+@foreach ($news_posts as $news_post)
+    <li class="list-group-item"><a href="{{ URL::to('/blogs/' .$news_post->post_title) }} " 
+    		title="{{$news_post->post_title}}">
+    {{ $news_post->post_title}} {{ $news_post->created_at }}
+    </a></li>
+@endforeach
 @stop
 
 @section('Columns')

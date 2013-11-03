@@ -16,6 +16,7 @@ Route::get('/', function()
 {
 	$news_posts=Posts::all();
 	$navbars=Navs::all();
+	$posts=Posts::all();
 	$cols=Columns::select('columns_name','id')->get();
 	return View::make('home')
 		->with('news_posts',$news_posts)
@@ -45,14 +46,14 @@ Route::get('blogs/{blog?}',function($posts){
 Route::get('page/{navs?}',function($navs){
 	$navigation=Navs::where('nav_name','=',$navs)->get();
 	$navbars=Navs::all();
- 	$posts=Posts::all();
+ 	$news_posts=Posts::all();
  	$col_set=Columns::all();
  	if($navs=="Home"){
  		return Redirect::to('/');
  	}
     return View::make('admin_main')
     								->with('navbars',$navbars)
-    								->with('posts',$posts)
+    								->with('news_posts',$news_posts)
     								->with('page_name',$navs)
     								->with('col_set',$col_set);
 });
