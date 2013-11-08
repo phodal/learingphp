@@ -6,7 +6,7 @@
 @stop
 
 @section('title')
-hello
+Blogs
 @stop
 
 @section('panel')
