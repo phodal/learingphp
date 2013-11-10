@@ -23,11 +23,16 @@ return array(
 		'post_content'=>array(
 			'title'=>'内容',
 			'select'=>'post_content',
+			'limit' => 30, 
 		),
 		'updated_at'=>array(
 			'title'=>'发布日期',
 			'select'=>'updated_at',
 			'sort_field'=>'updated_at',
+		),
+        'zcolumns_id'=>array(
+			'title'=>'所属栏目',
+			'select'=>'zcolumns_id',
 		),
 	),
 
@@ -59,7 +64,11 @@ return array(
 		'post_content'=>array(
 			'title'=>'内容',
 			'type'=>'wysiwyg',
-			'name_field' => 'name',
+		),
+		'zcolumns'=>array(
+			'title'=>'选择栏目',
+			'type'=>'relationship',
+			'name_field'=>'columns_name',
 		),
 	),
 

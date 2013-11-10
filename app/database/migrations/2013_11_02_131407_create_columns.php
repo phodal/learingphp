@@ -5,11 +5,7 @@ use Illuminate\Database\Migrations\Migration;
 
 class CreateColumns extends Migration {
 
-	/**
-	 * Run the migrations.
-	 *
-	 * @return void
-	 */
+
 	public function up()
 	{
 		Schema::create('columns', function(Blueprint $table)

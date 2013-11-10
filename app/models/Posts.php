@@ -7,7 +7,7 @@ class Posts extends Eloquent {
 		'post_content'=>'required',
 	);
 
-	public function columns()
+	public function zcolumns()
 	{
         return $this->belongsTo('Columns');
 	}

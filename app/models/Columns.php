@@ -6,4 +6,6 @@ class Columns extends Eloquent {
 	public static $rules=array(
 		'columns_name'=>'required',
 	);
+
+	
 }

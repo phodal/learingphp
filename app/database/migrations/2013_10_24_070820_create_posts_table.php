@@ -13,7 +13,7 @@ class CreatePostsTable extends Migration {
 			$table->string('author')->default('admin');
 			$table->longtext('post_content');
 			$table->text('post_title');
-			$table->integer('cols_id');
+			$table->integer('zcolumns_id')->unsigned()->default('1');
 			$table->timestamps();	
 
 		});
