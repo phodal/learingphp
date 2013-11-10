@@ -29,7 +29,6 @@ return array(
 			'select'=>'updated_at',
 			'sort_field'=>'updated_at',
 		),
-
 	),
 
 
@@ -62,7 +61,6 @@ return array(
 			'type'=>'wysiwyg',
 			'name_field' => 'name',
 		),
-
 	),
 
 );

@@ -6,8 +6,9 @@ class Posts extends Eloquent {
 		'post_title'=>'required',
 		'post_content'=>'required',
 	);
-	public function posts()
+
+	public function columns()
 	{
-        return $this->belongsTo('User');
+        return $this->belongsTo('Columns');
 	}
 }
