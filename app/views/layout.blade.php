@@ -8,6 +8,9 @@
 	    <meta name="description" content="">
 	    <title>@yield('title')</title>
 		<link rel="stylesheet" type="text/css" href="<?= url('css/bootstrap.min.css') ?>" />
+	    <link rel="stylesheet" type="text/css" href="<?= url('css/nivo-slider.css') ?>" />
+	    <link rel="stylesheet" type="text/css" href="<?= url('css/styles.css') ?>" />
+	    <link rel="stylesheet" href="<?= url('css/themes/default/default.css') ?>" type="text/css" media="screen" />
 	    <link rel="stylesheet" href="<?= url('css/justified-nav.css') ?>" type="text/css" media="screen" />
 
 
@@ -20,7 +23,11 @@
 
         <div cclass="masthead">
           <ul class="nav nav-justified">
-            @yield('headnav');
+            
+            @foreach($navbars as $navbar)
+			<li><a href="{{URL::to('/page/'.$navbar->nav_en)}}" title='{{$navbar->nav_name}}'>{{$navbar->nav_name}}</a></li>
+			@endforeach
+
 
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">About<b class="caret"></b></a>
@@ -35,6 +42,7 @@
         </div><!--/.navbar-collapse -->
       </div>
      </div>
+     
 <div class="container">
 
 <div class="container">

@@ -1,9 +1,11 @@
 @extends('layout')
 
-@section('nav')
-
-
+@section('headnav')
+@foreach($navbars as $navbar)
+	<li><a href="{{URL::to('/page/'.$navbar->nav_en)}}" title='{{$navbar->nav_name}}'>{{$navbar->nav_name}}</a></li>
+@endforeach
 @stop
+
 
 @section('title')
 Blogs
