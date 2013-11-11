@@ -8,7 +8,7 @@
 	    <meta name="description" content="">
 	    <title>@yield('title')</title>
 		<link rel="stylesheet" type="text/css" href="<?= url('css/bootstrap.min.css') ?>" />
-		<link rel="stylesheet" type="text/css" href="<?= url('css/bootstrap-switch.css') ?>" />
+		<link rel="stylesheet" type="text/css" href="<?= url('css/bootstrap-select.min.css') ?>" />
 	    <link rel="stylesheet" href="<?= url('css/justified-nav.css') ?>" type="text/css" media="screen" />
 	</head>
 <body>
@@ -21,9 +21,10 @@
 	{{ HTML::ul($errors->all()) }}
 	{{ Form::open(array('url' => 'athome')) }}
 
-		<div class="form-group">
+       <div class="form-group">
 			{{ Form::label('led1', '开关1') }}
-			{{ Form::checkbox('led1', Input::old('led1'), array('class' => 'form-control make-switch switch-large')) }}
+			{{ Form::select('led1',array('关','开'),$selected=NULL,array('class'=>'selectpicker')) }}
+
 		</div>
 
 		<div class="form-group">
@@ -57,6 +58,10 @@
 </div>
 <script type="text/javascript" src="<?= url('js/jquery.min.js')?>"></script>
 <script type="text/javascript" src="<?= url('js/bootstrap.min.js') ?>"></script>
+<script type="text/javascript" src="<?= url('js/bootstrap-select.min.js') ?>"></script>
+<script>
+ $('.selectpicker').selectpicker();
+ </script>
 <script type="text/javascript" src="<?= url('js/log.js') ?>"></script>
 
 

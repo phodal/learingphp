@@ -112,7 +112,7 @@ class AthomesController extends \BaseController {
 		// validate
 		// read more on validation at http://laravel.com/docs/validation
 		$rules = array(
-			'led1'=>'required',
+			'led1'=>'required|',
 			'sensors1' => 'required|numeric|Min:-50|Max:80',
 			'sensors2' => 'required|numeric|Min:-50|Max:80',
 			'temperature' => 'required|numeric|Min:-50|Max:80'
