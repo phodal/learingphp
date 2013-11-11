@@ -7,9 +7,25 @@ class AthomesController extends \BaseController {
 	 *
 	 * @return Response
 	 */
+    public $restful=true;
+
+    protected $athome;
+
+	public function __construct(Athomes $athome)
+	{
+	    $this->athome = $athome ;
+	 }
+
+    public $rules=array(
+    	'id'=>'required',
+    	'led1'=>'required',
+    );
+    
+
 	public function index()
 	{
-		//
+		$maxid=Athomes::all();
+	    return Response::json($maxid);
 	}
 
 	/**
@@ -19,7 +35,8 @@ class AthomesController extends \BaseController {
 	 */
 	public function create()
 	{
-		//
+		$maxid=Athomes::max('id');
+		return View::make('athome.create')->with('maxid',$maxid);
 	}
 
 	/**
@@ -40,7 +57,11 @@ class AthomesController extends \BaseController {
 	 */
 	public function show($id)
 	{
-		//
+		$myid=Athomes::find($id);
+        $maxid=Athomes::where('id','=',$id)
+						->select('id','temperature','sensors1','sensors2','led1')
+						->get();
+	    return Response::json($maxid);
 	}
 
 	/**

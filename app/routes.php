@@ -98,7 +98,7 @@ Route::get('sitemap', function(){
 
 });
 
-
+/*
 Route::get('/athome/{atid}',function($atid){
 	$atdata=Athomes::where('id','=',$atid)
 						->select('id','temperature','sensors1','sensors2','led1')
@@ -110,3 +110,5 @@ Route::get('/athome',function(){
 	$maxid=Athomes::max('id');
 	return View::make('athome')->with('maxid',$maxid);
 });
+*/
+Route::resource('athome', 'AthomesController');
