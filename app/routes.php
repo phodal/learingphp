@@ -111,4 +111,5 @@ Route::get('/athome',function(){
 	return View::make('athome')->with('maxid',$maxid);
 });
 */
+Route::resource('nerds', 'NerdController');
 Route::resource('athome', 'AthomesController');
