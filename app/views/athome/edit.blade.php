@@ -8,7 +8,6 @@
 	    <meta name="description" content="">
 	    <title>@yield('title')</title>
 		<link rel="stylesheet" type="text/css" href="<?= url('css/bootstrap.min.css') ?>" />
-		<link rel="stylesheet" type="text/css" href="<?= url('css/bootstrap-switch.css') ?>" />
 	    <link rel="stylesheet" href="<?= url('css/justified-nav.css') ?>" type="text/css" media="screen" />
 	</head>
 <body>
@@ -18,12 +17,17 @@
 
 <div class="container">
   <div class="row-fluid">
-	{{ HTML::ul($errors->all()) }}
-	{{ Form::open(array('url' => 'athome')) }}
 
-		<div class="form-group">
+<h1>Edit {{ $athome->id }}</h1>
+
+<!-- if there are creation errors, they will show here -->
+{{ HTML::ul($errors->all()) }}
+
+{{ Form::model($athome, array('route' => array('athome.update', $athome->id), 'method' => 'PUT')) }}
+
+       <div class="form-group">
 			{{ Form::label('led1', '开关1') }}
-			{{ Form::checkbox('led1', Input::old('led1'), array('class' => 'form-control make-switch switch-large')) }}
+			{{ Form::checkbox('led1', Input::old('led1'), array('class' => 'form-control')) }}
 		</div>
 
 		<div class="form-group">
@@ -41,9 +45,10 @@
 			{{ Form::text('temperature', Input::old('temperature'), array('class' => 'form-control')) }}
 		</div>
 
-		{{ Form::submit('Create the Nerd!', array('class' => 'btn btn-primary')) }}
 
-	{{ Form::close() }}
+	{{ Form::submit('Edit the Nerd!', array('class' => 'btn btn-primary')) }}
+
+{{ Form::close() }}
 
     </div>
 </div>

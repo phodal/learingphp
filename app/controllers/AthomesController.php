@@ -14,13 +14,7 @@ class AthomesController extends \BaseController {
 	public function __construct(Athomes $athome)
 	{
 	    $this->athome = $athome ;
-	 }
-
-    public $rules=array(
-    	'id'=>'required',
-    	'led1'=>'required',
-    );
-    
+	 }    
 
 	public function index()
 	{
@@ -46,7 +40,34 @@ class AthomesController extends \BaseController {
 	 */
 	public function store()
 	{
-		//
+		// validate
+		// read more on validation at http://laravel.com/docs/validation
+		$rules = array(
+			'led1'=>'required',
+			'sensors1' => 'required|numeric|Min:-50|Max:80',
+			'sensors2' => 'required|numeric|Min:-50|Max:80',
+			'temperature' => 'required|numeric|Min:-50|Max:80'
+		);
+		$validator = Validator::make(Input::all(), $rules);
+
+		// process the login
+		if ($validator->fails()) {
+			return Redirect::to('athome/create')
+				->withErrors($validator)
+				->withInput(Input::except('password'));
+		} else {
+			// store
+			$nerd = new Athomes;
+			$nerd->sensors1       = Input::get('sensors1');
+			$nerd->sensors2       = Input::get('sensors2');
+			$nerd->temperature    = Input::get('temperature');
+			$nerd->led1			  = Input::get('led1');
+			$nerd->save();
+
+			// redirect
+			Session::flash('message', 'Successfully created athome!');
+			return Redirect::to('athome');
+		}
 	}
 
 	/**
@@ -72,7 +93,12 @@ class AthomesController extends \BaseController {
 	 */
 	public function edit($id)
 	{
-		//
+		// get the nerd
+		$athome = Athomes::find($id);
+
+		// show the edit form and pass the nerd
+		return View::make('athome.edit')
+			->with('athome', $athome);
 	}
 
 	/**
@@ -83,7 +109,33 @@ class AthomesController extends \BaseController {
 	 */
 	public function update($id)
 	{
-		//
+		// validate
+		// read more on validation at http://laravel.com/docs/validation
+		$rules = array(
+			'led1'=>'required',
+			'sensors1' => 'required|numeric|Min:-50|Max:80',
+			'sensors2' => 'required|numeric|Min:-50|Max:80',
+			'temperature' => 'required|numeric|Min:-50|Max:80'
+		);
+		$validator = Validator::make(Input::all(), $rules);
+
+		// process the login
+		if ($validator->fails()) {
+			return Redirect::to('athome/' . $id . '/edit')
+				->withErrors($validator);
+		} else {
+			// store
+			$nerd = Athomes::find($id);
+			$nerd->sensors1       = Input::get('sensors1');
+			$nerd->sensors2       = Input::get('sensors2');
+			$nerd->temperature    = Input::get('temperature');
+			$nerd->led1			  = Input::get('led1');
+			$nerd->save();
+
+			// redirect
+			Session::flash('message', 'Successfully created athome!');
+			return Redirect::to('athome');
+		}
 	}
 
 	/**
@@ -94,7 +146,16 @@ class AthomesController extends \BaseController {
 	 */
 	public function destroy($id)
 	{
-		//
+		// delete
+		$athome = Athomes::find($id);
+		$athome->delete();
+        if(is_null($athome))
+        {
+             return Response::json('Todo not found', 404);
+        }
+		// redirect
+		Session::flash('message', 'Successfully deleted the nerd!');
+		return Redirect::to('athome');
 	}
 
 }
