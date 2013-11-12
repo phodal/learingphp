@@ -3,22 +3,22 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateColumns extends Migration {
-
+class CreateLedsTable extends Migration {
 
 	public function up()
 	{
-		Schema::create('columns', function(Blueprint $table)
+		Schema::create('leds', function(Blueprint $table)
 		{
 			$table->increments('id');
-			$table->string('columns_name');
+			$table->boolean('led1');
+			$table->boolean('led2');
 			$table->timestamps();
 		});
 	}
 
 	public function down()
 	{
-		Schema::drop('columns');
+		Schema::drop('leds');
 	}
 
 }

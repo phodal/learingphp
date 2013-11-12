@@ -112,4 +112,6 @@ Route::get('/at',function(){
 });
 
 Route::resource('nerds', 'NerdController');
+Route::resource('leds','LedsController');
 Route::resource('athome', 'AthomesController');
+Route::resource('status', 'StatusController');
