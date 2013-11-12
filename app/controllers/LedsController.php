@@ -8,6 +8,9 @@ class LedsController extends \BaseController {
 
 	public function __construct(Leds $led)
 	{
+		$this->beforeFilter('auth');
+        $this->beforeFilter('csrf', array('on' => 'post'));
+
 	    $this->led = $led ;
 	 }    
 

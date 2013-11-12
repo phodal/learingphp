@@ -13,8 +13,6 @@ class AthomesController extends \BaseController {
 
 	public function __construct(Athomes $athome)
 	{
-		$this->beforeFilter('auth');
-        $this->beforeFilter('csrf', array('on' => 'post'));
 	    $this->athome = $athome ;
 	 }    
 
