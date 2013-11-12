@@ -98,18 +98,18 @@ Route::get('sitemap', function(){
 
 });
 
-/*
-Route::get('/athome/{atid}',function($atid){
+
+Route::get('/at/{atid}',function($atid){
 	$atdata=Athomes::where('id','=',$atid)
 						->select('id','temperature','sensors1','sensors2','led1')
 						->get();
 	return Response::json($atdata);
 });
 
-Route::get('/athome',function(){
+Route::get('/at',function(){
 	$maxid=Athomes::max('id');
 	return View::make('athome')->with('maxid',$maxid);
 });
-*/
+
 Route::resource('nerds', 'NerdController');
 Route::resource('athome', 'AthomesController');

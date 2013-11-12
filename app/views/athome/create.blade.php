@@ -42,7 +42,7 @@
 			{{ Form::text('temperature', Input::old('temperature'), array('class' => 'form-control')) }}
 		</div>
 
-		{{ Form::submit('Create the Nerd!', array('class' => 'btn btn-primary')) }}
+		{{ Form::submit('Create!', array('class' => 'btn btn-primary')) }}
 
 	{{ Form::close() }}
 
